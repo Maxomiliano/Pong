@@ -1,18 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScore : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] int _player1Score = 0;
+    [SerializeField] int _scoreAmount = 1;
+    TMP_Text _playerScoreText;
+
+    private void Start()
     {
-        
+        _playerScoreText = GetComponent<TMP_Text>();
+        UpdateDisplay();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateDisplay()
     {
-        
+        _playerScoreText.text = _player1Score.ToString();
+    }
+
+    public void AddScore()
+    {
+        _player1Score += _scoreAmount;
+        UpdateDisplay();
     }
 }
