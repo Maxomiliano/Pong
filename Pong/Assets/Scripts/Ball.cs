@@ -21,8 +21,8 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         var speed = lastVelocity.magnitude;
-        var direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal);
-
+        var direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal); //Obtener Rigidbody y velocity de la tabla y con ese valor modifico la dirección de la pelota
+        //direction *= rigidBody.velocity en valores Y 
         rigidBody.velocity = direction * Mathf.Max(speed, 0f);
     }
 }

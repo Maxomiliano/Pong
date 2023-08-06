@@ -10,6 +10,7 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] int _player1Score = 0;
     [SerializeField] int _scoreAmount = 1;
     TMP_Text _playerScoreText;
+    public event Action onPointScored;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class PlayerScore : MonoBehaviour
 
     public void AddScore()
     {
+        onPointScored?.Invoke(); //Don't forget to call the Invoke method where you want the action to be called
         _player1Score += _scoreAmount;
         UpdateDisplay();
     }

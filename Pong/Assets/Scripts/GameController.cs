@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,41 +9,49 @@ public class GameController : MonoBehaviour
     [SerializeField] float _xPush = 1f;
     [SerializeField] float _yPush = 1f;
     [SerializeField] float _speed = 1f;
+    [SerializeField] public PlayerScore _playerScore;
 
+    private GameObject _cloneBall;
+
+    private void OnEnable()
+    {
+        _playerScore.onPointScored += OnPointScored;
+    }
     void Start()
     {
-        ResetGame();
+        //ResetGame();
         GoToRandomPosition();   //After a player make a point, it should call GoToRandomPosition() again
     }
 
-    void Update()
+    private void OnDisable()
     {
-        
+        _playerScore.onPointScored -= OnPointScored;
     }
     private void GoToRandomPosition()
     {
-        //At this point in code the ball goes to random position but only in the positive (1,1) axis
-        float xRandom = Random.Range(0f, _xPush);
-        float yRandom = Random.Range(0f, _yPush);
-        _ball.GetComponent<Rigidbody2D>().velocity = new Vector2(xRandom, yRandom * Time.deltaTime * _speed); //turn this into AddForce instead of Velocity
+        if (_ball != null)
+        {
+            //UnityEngine.Random.insideUnitCircle
+            float xRandom = UnityEngine.Random.Range(-1f, 1f); //X nunca puede ser 0
+            float yRandom = UnityEngine.Random.Range(-1f, 1f); //Y nunca debería ser 0, salvo que la velocidad de Player modifique la reflexión de la pelota
+            _ball.GetComponent<Rigidbody2D>().velocity = new Vector2(xRandom, yRandom).normalized * _speed; //turn this into AddForce instead of Velocity
+        }
     }
 
     private void ResetGame()
     {
-        Instantiate(_ball);
-        _ball.SetActive(true);
+        if (_ball != null)
+        {
+            _cloneBall = Instantiate(_ball);
+            _cloneBall.SetActive(true);
+            //Instantiate(_ball);
+            //_ball.SetActive(true);
+        }
     }
 
-    /*
-    private void GoToRandomPosition()
+    void OnPointScored()
     {
-        rigidBody.velocity = new Vector2(_xPush, _yPush);
-        //float randomRangePosition = Random.Range(5f, 5f);
-        //Vector2 newPosition = new Vector2(randomRangePosition, randomRangePosition * _speed * Time.deltaTime);
-
-
-        //transform.position = newPosition;
-        //transform.position = Vector2.MoveTowards(transform.position, newPosition, _speed * Time.deltaTime);
+        GoToRandomPosition();
+        ResetGame();
     }
-    */
 }

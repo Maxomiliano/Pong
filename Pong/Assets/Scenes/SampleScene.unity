@@ -212,6 +212,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5f2ff1efb782c4a8d94492886afb7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2008015456 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5245403120014354907, guid: ea591d45879076846a9df97550f560a9, type: 3}
+  m_PrefabInstance: {fileID: 7697347260869387846}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ffa71773c2b8f041949772fd9d5d910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2997027006371893193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,6 +235,18 @@ PrefabInstance:
       propertyPath: _ball
       value: 
       objectReference: {fileID: 1071643821}
+    - target: {fileID: 318852742366408777, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
+      propertyPath: _speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 318852742366408777, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
+      propertyPath: _cloneBall
+      value: 
+      objectReference: {fileID: 1071643821}
+    - target: {fileID: 318852742366408777, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
+      propertyPath: _playerScore
+      value: 
+      objectReference: {fileID: 2008015456}
     - target: {fileID: 7262200516325268576, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -352,7 +375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2785200217879432506, guid: 6492d2653afcc10459884a2307850bef, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5873159114688587496, guid: 6492d2653afcc10459884a2307850bef, type: 3}
       propertyPath: m_RootOrder
@@ -412,9 +435,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2905849104862525421, guid: 74c719bc223cc3040a500969a9603282, type: 3}
+      propertyPath: playerScore
+      value: 
+      objectReference: {fileID: 2008015456}
+    - target: {fileID: 2905849104862525421, guid: 74c719bc223cc3040a500969a9603282, type: 3}
       propertyPath: gameController
       value: 
       objectReference: {fileID: 1795515354}
+    - target: {fileID: 4273284452237480322, guid: 74c719bc223cc3040a500969a9603282, type: 3}
+      propertyPath: playerScore
+      value: 
+      objectReference: {fileID: 2008015456}
     - target: {fileID: 4734477361221949801, guid: 74c719bc223cc3040a500969a9603282, type: 3}
       propertyPath: m_Name
       value: LevelBoundaries
@@ -581,6 +612,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3847096252803941265, guid: 20bb53a46c82a8545b87a7a035b8440c, type: 3}
+      propertyPath: _movementSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4279820578524818285, guid: 20bb53a46c82a8545b87a7a035b8440c, type: 3}
       propertyPath: m_Name
       value: Player
