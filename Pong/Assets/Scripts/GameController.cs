@@ -22,9 +22,16 @@ public class GameController : MonoBehaviour
     }
     void Start()
     {
-        _ballInitialPosition = _ball.transform.position;
-        //ResetGame();
+        CreateBall();
         GoToRandomPosition();   //After a player make a point, it should call GoToRandomPosition() again
+        //ResetGame();
+    }
+
+    private void CreateBall()
+    {
+        _ballInitialPosition = _ball.transform.position;
+        _ballInitialRotation = _ball.transform.rotation;
+        _cloneBall = Instantiate(_ball, _ballInitialPosition, _ballInitialRotation);
     }
 
     private void OnDisable()
@@ -48,17 +55,17 @@ public class GameController : MonoBehaviour
     {
         if (_ball != null)
         {
-            _cloneBall = Instantiate(_ball, _ballInitialPosition, _ballInitialRotation);
+            CreateBall();
             GoToRandomPosition();
-            //_cloneBall.SetActive(true);
-            //Instantiate(_ball);
-            //_ball.SetActive(true);
+        }
+        else if (_cloneBall != null)
+        {
+            Destroy(_cloneBall);
         }
     }
 
     void OnPointScored()
     {
         ResetGame();
-        //GoToRandomPosition();
     }
 }
