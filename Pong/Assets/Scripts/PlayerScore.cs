@@ -8,25 +8,44 @@ using UnityEngine.UI;
 public class PlayerScore : MonoBehaviour
 {
     [SerializeField] int _player1Score = 0;
+    [SerializeField] int _player2Score = 0;
     [SerializeField] int _scoreAmount = 1;
-    TMP_Text _playerScoreText;
+    [SerializeField] TMP_Text _player1ScoreText;
+    [SerializeField] TMP_Text _player2ScoreText;
     public event Action onPointScored;
 
     private void Start()
     {
-        _playerScoreText = GetComponent<TMP_Text>();
         UpdateDisplay();
     }
 
     private void UpdateDisplay()
     {
-        _playerScoreText.text = _player1Score.ToString();
+        UpdatePlayerOneDisplay();
+        UpdatePlayerTwoDisplay();
     }
 
-    public void AddScore()
+    private void UpdatePlayerOneDisplay()
+    {
+        _player1ScoreText.text = _player1Score.ToString();
+    }
+    private void UpdatePlayerTwoDisplay()
+    {
+        _player2ScoreText.text = _player2Score.ToString();
+    }
+
+    public void AddScore(string colliderID)
     {
         onPointScored?.Invoke(); //Don't forget to call the Invoke method where you want the action to be called
-        _player1Score += _scoreAmount;
-        UpdateDisplay();
+        if (colliderID == "Player1Scores")
+        {
+            _player1Score += _scoreAmount;
+            UpdatePlayerOneDisplay();
+        }
+        else if (colliderID == "Player2Scores")
+        {
+            _player2Score += _scoreAmount;
+            UpdatePlayerTwoDisplay();
+        }
     }
 }
