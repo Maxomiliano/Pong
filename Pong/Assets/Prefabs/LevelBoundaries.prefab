@@ -223,6 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f6e1673158a104abe9fde494b0399a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScore: {fileID: 0}
+  colliderID: Player2Scores
 --- !u!1 &4734477361221949801
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f6e1673158a104abe9fde494b0399a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScore: {fileID: 0}
+  colliderID: Player1Scores
 --- !u!1 &7653551774655058254
 GameObject:
   m_ObjectHideFlags: 0
