@@ -27,5 +27,4 @@ public class FollowBall : MonoBehaviour
         if(_ball != null)
             _pcPosition.transform.position = Vector2.MoveTowards(_pcPosition.transform.position, _ball.transform.position, currentSpeed);
     }
-
 }
