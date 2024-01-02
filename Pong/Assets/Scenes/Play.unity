@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e538bd955d087b4f9297e2dfe0057b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ball: {fileID: 0}
+  _ball: {fileID: 5873159114688587496, guid: 6492d2653afcc10459884a2307850bef, type: 3}
   _pcPosition: {fileID: 452053971}
   _speed: 1
 --- !u!20 &519420031 stripped
