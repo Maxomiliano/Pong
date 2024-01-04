@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     private GameObject _cloneBall;
     private Vector3 _ballInitialPosition;
     private Quaternion _ballInitialRotation;
+    public TestAIMovement _testAIMovement;
 
     private void OnEnable()
     {
@@ -32,6 +33,7 @@ public class GameController : MonoBehaviour
         _ballInitialPosition = _ball.transform.position;
         _ballInitialRotation = _ball.transform.rotation;
         _cloneBall = Instantiate(_ball, _ballInitialPosition, _ballInitialRotation);
+        _testAIMovement.SetBall(_cloneBall); // Update the AI's reference to the new ball
     }
 
     private void OnDisable()
