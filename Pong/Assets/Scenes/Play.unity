@@ -128,12 +128,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 456162714226532381, guid: d068c60e5d69ef243836f6357b51e0ff, type: 3}
   m_PrefabInstance: {fileID: 1753947759}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &452053971 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5433799529730015136, guid: d068c60e5d69ef243836f6357b51e0ff, type: 3}
+--- !u!50 &452053975 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2111846724926043853, guid: d068c60e5d69ef243836f6357b51e0ff, type: 3}
   m_PrefabInstance: {fileID: 1753947759}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &452053972
+--- !u!114 &452053978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,12 +142,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 452053965}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e538bd955d087b4f9297e2dfe0057b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 72286e328da4d714ea8cc81224f36fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ball: {fileID: 0}
-  _pcPosition: {fileID: 452053971}
-  _speed: 1
+  rbPaddle: {fileID: 452053975}
+  ball: {fileID: 2785200217879432506, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+  paddleSpeed: 5
 --- !u!20 &519420031 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2549408852499080901, guid: 0c9f11f2cbab1eb43ade2da79b7ba6de, type: 3}
@@ -355,7 +355,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 456162714226532381, guid: d068c60e5d69ef243836f6357b51e0ff, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 452053972}
+      addedObject: {fileID: 452053978}
   m_SourcePrefab: {fileID: 100100000, guid: d068c60e5d69ef243836f6357b51e0ff, type: 3}
 --- !u!114 &2008015457 stripped
 MonoBehaviour:
@@ -380,6 +380,10 @@ PrefabInstance:
       propertyPath: _playerScore
       value: 
       objectReference: {fileID: 1617265623}
+    - target: {fileID: 318852742366408777, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
+      propertyPath: _playerTestAIMovement
+      value: 
+      objectReference: {fileID: 452053978}
     - target: {fileID: 7262200516325268576, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
       propertyPath: m_RootOrder
       value: 6

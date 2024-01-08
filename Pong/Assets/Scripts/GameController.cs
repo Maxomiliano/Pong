@@ -5,16 +5,18 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] GameObject _ball;
+    [SerializeField] public GameObject _ball;
     [SerializeField] float _xPush = 1f;
     [SerializeField] float _yPush = 1f;
     [SerializeField] float _speed = 1f;
     [SerializeField] public PlayerScore _playerScore;
+    [SerializeField] public TestAIMovement _playerTestAIMovement;
     //[SerializeField] Vector3 _lastPosition;
 
     private GameObject _cloneBall;
     private Vector3 _ballInitialPosition;
     private Quaternion _ballInitialRotation;
+    
 
     private void OnEnable()
     {
@@ -32,6 +34,7 @@ public class GameController : MonoBehaviour
         _ballInitialPosition = _ball.transform.position;
         _ballInitialRotation = _ball.transform.rotation;
         _cloneBall = Instantiate(_ball, _ballInitialPosition, _ballInitialRotation);
+        _playerTestAIMovement.GetComponent<TestAIMovement>().SetBall(_cloneBall);
     }
 
     private void OnDisable()

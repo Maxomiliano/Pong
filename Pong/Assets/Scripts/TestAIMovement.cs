@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TestAIMovement : MonoBehaviour
 {
-    public Rigidbody2D rbPaddle; // Reference to the paddle's Rigidbody2D
-    public GameObject ball; // Reference to the ball object
-    public float paddleSpeed = 5.0f; // Speed of the AI paddle
+    public Rigidbody2D rbPaddle; 
+    public GameObject ball;
+    public float paddleSpeed = 5.0f;
 
     void Start()
     {
-        rbPaddle = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
+        rbPaddle = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
@@ -23,5 +23,10 @@ public class TestAIMovement : MonoBehaviour
             // Move the AI paddle towards the ball
             rbPaddle.velocity = new Vector2(0, direction * paddleSpeed);
         }
+    }
+
+    public void SetBall(GameObject cloneBall)
+    {
+        ball = cloneBall;
     }
 }
