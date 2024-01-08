@@ -36,7 +36,7 @@ public class PlayerScore : MonoBehaviour
 
     public void AddScore(string colliderID)
     {
-        onPointScored?.Invoke(); //Don't forget to call the Invoke method where you want the action to be called
+        onPointScored?.Invoke();
         if (colliderID == "Player1Scores")
         {
             _player1Score += _scoreAmount;

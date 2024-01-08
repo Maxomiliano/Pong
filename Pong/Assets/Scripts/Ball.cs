@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    //Hoy tuve un problema con una missing reference con la ball porque en GameController estaba referenciando la Ball de la escena en lugar de la del Prefab
-
     [SerializeField] float _speed = 1f;
     public Rigidbody2D rigidBody;
     Vector3 lastVelocity;

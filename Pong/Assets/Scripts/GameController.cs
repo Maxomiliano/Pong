@@ -24,8 +24,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         CreateBall();
-        GoToRandomPosition();   //After a player make a point, it should call GoToRandomPosition() again
-        //ResetGame();
+        GoToRandomPosition();
     }
 
     private void CreateBall()

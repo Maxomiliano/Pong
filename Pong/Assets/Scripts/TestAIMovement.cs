@@ -10,7 +10,7 @@ public class TestAIMovement : MonoBehaviour
 
     void Start()
     {
-        rbPaddle = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
+        rbPaddle = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
