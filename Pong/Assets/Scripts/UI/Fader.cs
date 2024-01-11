@@ -14,7 +14,7 @@ namespace TD.UI
         private void Awake()
         {
             base.OnAwake();
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         }
 
         public void FadeOut(float duration = 1, Action callback = null)
