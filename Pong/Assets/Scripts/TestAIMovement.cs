@@ -11,6 +11,7 @@ public class TestAIMovement : MonoBehaviour
     void Start()
     {
         rbPaddle = GetComponent<Rigidbody2D>();
+        Debug.Log("Activated AI Movement");
     }
 
     void FixedUpdate()

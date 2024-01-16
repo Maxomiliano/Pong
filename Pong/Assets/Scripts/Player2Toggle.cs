@@ -9,12 +9,14 @@ public class Player2Toggle : MonoBehaviour
     public void PlayerVersusPlayer()
     {
         _player2.GetComponent<PlayerMovement>().enabled = true;
-        //_player2.GetComponent<TestAIMovement>().enabled = false;
+        _player2.GetComponent<TestAIMovement>().enabled = false;
+        PlayerVersus.IsPVP = true;
     }
 
     public void PlayerVersusAI()
     {
+        _player2.GetComponent<TestAIMovement>().enabled = true;
         _player2.GetComponent<PlayerMovement>().enabled = false;
-        //_player2.GetComponent<TestAIMovement>().enabled = true;
+        PlayerVersus.IsPVP = false;
     }
 }
