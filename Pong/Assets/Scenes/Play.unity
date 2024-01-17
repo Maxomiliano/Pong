@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &452053973 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5220235077780332653, guid: d068c60e5d69ef243836f6357b51e0ff, type: 3}
-  m_PrefabInstance: {fileID: 1753947759}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72286e328da4d714ea8cc81224f36fd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &635202001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7097934028244119078, guid: 20bb53a46c82a8545b87a7a035b8440c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7097934028244119078, guid: 20bb53a46c82a8545b87a7a035b8440c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -335,6 +324,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d068c60e5d69ef243836f6357b51e0ff, type: 3}
+--- !u!114 &1753947760 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2575616078808278355, guid: d068c60e5d69ef243836f6357b51e0ff, type: 3}
+  m_PrefabInstance: {fileID: 1753947759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72286e328da4d714ea8cc81224f36fd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1753947761 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8218374266501262916, guid: d068c60e5d69ef243836f6357b51e0ff, type: 3}
+  m_PrefabInstance: {fileID: 1753947759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03f212470ad4db4eb0865fdcff98e0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2008015457 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 505144778276620430, guid: ea591d45879076846a9df97550f560a9, type: 3}
@@ -359,9 +370,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1617265623}
     - target: {fileID: 318852742366408777, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
+      propertyPath: _gameSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: c99083029880c044aa3167856ee0db0c, type: 2}
+    - target: {fileID: 318852742366408777, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
       propertyPath: _testAIMovement
       value: 
-      objectReference: {fileID: 452053973}
+      objectReference: {fileID: 0}
+    - target: {fileID: 318852742366408777, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
+      propertyPath: _player2Movement
+      value: 
+      objectReference: {fileID: 1753947761}
+    - target: {fileID: 318852742366408777, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
+      propertyPath: _player2AIMovement
+      value: 
+      objectReference: {fileID: 1753947760}
     - target: {fileID: 7262200516325268576, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -425,7 +448,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 30115503112211702, guid: 0c9f11f2cbab1eb43ade2da79b7ba6de, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 30115503112211702, guid: 0c9f11f2cbab1eb43ade2da79b7ba6de, type: 3}
       propertyPath: m_LocalPosition.x
@@ -571,7 +594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 597271485283928346, guid: ea591d45879076846a9df97550f560a9, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 597271485283928346, guid: ea591d45879076846a9df97550f560a9, type: 3}
       propertyPath: m_AnchorMax.x
