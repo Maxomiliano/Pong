@@ -5,17 +5,13 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private GameSettings _gameSettings;
-    [SerializeField] GameObject _ball;
+    [SerializeField] public Ball _ball;
     [SerializeField] public PlayerScore _playerScore;
+    [SerializeField] private GameSettings _gameSettings;
     [SerializeField] private PlayerMovement _player2Movement;
     [SerializeField] private TestAIMovement _player2AIMovement;
-    [SerializeField] private float _xPush = 1f;
-    [SerializeField] private float _yPush = 1f;
-    [SerializeField] private float _speed = 1f;
-    //[SerializeField] Vector3 _lastPosition;
 
-    private GameObject _cloneBall;
+    public GameObject CloneBall;
     private Vector3 _ballInitialPosition;
     private Quaternion _ballInitialRotation;
 
@@ -27,7 +23,6 @@ public class GameController : MonoBehaviour
     {
         SetGameMode();
         CreateBall();
-        GoToRandomPosition();
     }
 
     private void SetGameMode()
@@ -47,25 +42,13 @@ public class GameController : MonoBehaviour
     {
         _ballInitialPosition = _ball.transform.position;
         _ballInitialRotation = _ball.transform.rotation;
-        _cloneBall = Instantiate(_ball, _ballInitialPosition, _ballInitialRotation);
-        _player2AIMovement.SetBall(_cloneBall); // Update the AI's reference to the new ball
+        CloneBall = Instantiate(_ball.gameObject, _ballInitialPosition, _ballInitialRotation);
+        _player2AIMovement.SetBall(CloneBall); // Update the AI's reference to the new ball
     }
 
     private void OnDisable()
     {
         _playerScore.onPointScored -= OnPointScored;
-    }
-    private void GoToRandomPosition()
-    {
-        float xRandom = UnityEngine.Random.Range(-1f, 1f); //X nunca puede ser 0
-        float yRandom = UnityEngine.Random.Range(-1f, 1f); //Y nunca debería ser 0, salvo que la velocidad de Player modifique la reflexión de la pelota
-        if (_ball != null)
-        {
-            //UnityEngine.Random.insideUnitCircle
-            _ball.GetComponent<Rigidbody2D>().velocity = new Vector2(xRandom, yRandom).normalized * _speed; //turn this into AddForce instead of Velocity
-            if (_cloneBall != null)
-                _cloneBall.GetComponent<Rigidbody2D>().velocity = new Vector2(xRandom, yRandom).normalized * _speed;
-        }
     }
 
     private void ResetGame()
@@ -73,11 +56,11 @@ public class GameController : MonoBehaviour
         if (_ball != null)
         {
             CreateBall();
-            GoToRandomPosition();
+            _ball.GoToRandomPosition();
         }
-        else if (_cloneBall != null)
+        else if (CloneBall != null)
         {
-            Destroy(_cloneBall);
+            Destroy(CloneBall);
         }
     }
 
