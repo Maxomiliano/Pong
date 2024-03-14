@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -24,6 +25,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject _mainMenuPanel;
     [SerializeField] GameSettings _gameSettings;
     [SerializeField] GameObject _title;
+    [SerializeField] GameObject _selectedGameObject;
 
     //Acá va el audio??
 
@@ -64,6 +66,7 @@ public class MainMenu : MonoBehaviour
 
     private void ShowGameModePanel()
     {
+        _selectedGameObject = EventSystem.current.currentSelectedGameObject;
         _selectGameModePanel.SetActive(true);
         _mainMenuPanel.SetActive(false);
         _creditsPanel.SetActive(false);
@@ -73,6 +76,7 @@ public class MainMenu : MonoBehaviour
 
     private void ShowOptionsPanel()
     {
+        _selectedGameObject = EventSystem.current.currentSelectedGameObject;
         _title.SetActive(true);
         _optionsPanel.SetActive(true);
         _mainMenuPanel.SetActive(false);
@@ -82,6 +86,7 @@ public class MainMenu : MonoBehaviour
 
     private void ShowCreditsPanel()
     {
+        _selectedGameObject = EventSystem.current.currentSelectedGameObject;
         _creditsPanel.SetActive(true);
         _title.SetActive(false);
         _mainMenuPanel.SetActive(false);
@@ -91,6 +96,7 @@ public class MainMenu : MonoBehaviour
 
     private void ShowMainMenuPanel()
     {
+        EventSystem.current.SetSelectedGameObject( _selectedGameObject );
         _mainMenuPanel.SetActive(true);
         _optionsPanel.SetActive(false);
         _selectGameModePanel.SetActive(false);
