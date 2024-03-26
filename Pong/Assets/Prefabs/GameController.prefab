@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &318852742366408777
 MonoBehaviour:
@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5f2ff1efb782c4a8d94492886afb7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ball: {fileID: 2785200217879432506, guid: 6492d2653afcc10459884a2307850bef, type: 3}
-  _xPush: 1
-  _yPush: 1
-  _speed: 5
+  _ball: {fileID: 6003600533237449362, guid: 6492d2653afcc10459884a2307850bef, type: 3}
   _playerScore: {fileID: 0}
-  _testAIMovement: {fileID: 5220235077780332653, guid: d068c60e5d69ef243836f6357b51e0ff, type: 3}
+  _gameSettings: {fileID: 11400000, guid: c99083029880c044aa3167856ee0db0c, type: 2}
+  _player2Movement: {fileID: 0}
+  _player2AIMovement: {fileID: 0}
+  _timer: {fileID: 0}
+  CloneBall: {fileID: 0}

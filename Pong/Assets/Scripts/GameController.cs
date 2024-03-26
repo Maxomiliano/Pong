@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -10,19 +11,34 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameSettings _gameSettings;
     [SerializeField] private PlayerMovement _player2Movement;
     [SerializeField] private TestAIMovement _player2AIMovement;
+    [SerializeField] private UITimer _timer;
+    [SerializeField] private Canvas _canvas;
 
     public GameObject CloneBall;
     private Vector3 _ballInitialPosition;
     private Quaternion _ballInitialRotation;
+    private void Awake()
+    {
+        _canvas.gameObject.SetActive(false);
+        StartCoroutine(_timer.Countdown());
+    }
 
     private void OnEnable()
     {
         _playerScore.onPointScored += OnPointScored;
     }
+
     void Start()
     {
+        StartCoroutine(ShowCanvasCoroutine());
         SetGameMode();
         CreateBall();
+    }
+
+    private IEnumerator ShowCanvasCoroutine()
+    {
+        yield return new WaitForSeconds(.1f);
+        _canvas.gameObject.SetActive(true);
     }
 
     private void SetGameMode()
