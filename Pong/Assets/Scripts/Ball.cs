@@ -27,16 +27,15 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var speed = lastVelocity.magnitude; //cambiar este nombre y el tipo
-        var direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal); //Obtener Rigidbody y velocity de la tabla y con ese valor modifico la dirección de la pelota
+        var direction = Vector3.Reflect(lastVelocity.normalized, collision.contacts[0].normal); //Obtener Rigidbody y velocity de la tabla y con ese valor modifico la direcciï¿½n de la pelota
         //direction *= rigidBody.velocity en valores Y 
-        rigidBody.velocity = direction * Mathf.Max(speed, 0f);
+        rigidBody.velocity = direction * Mathf.Max(lastVelocity.magnitude, 0f);
     }
 
     public void GoToRandomPosition()
     {
         float xRandom = UnityEngine.Random.Range(-1f, 1f); //X nunca puede ser 0
-        float yRandom = UnityEngine.Random.Range(-1f, 1f); //Y nunca debería ser 0, salvo que la velocidad de Player modifique la reflexión de la pelota
+        float yRandom = UnityEngine.Random.Range(-1f, 1f); //Y nunca deberï¿½a ser 0, salvo que la velocidad de Player modifique la reflexiï¿½n de la pelota
         if (gameObject != null)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle * _speed;
