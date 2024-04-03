@@ -6,6 +6,7 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] private float _speed = 8f;
     [SerializeField] public GameController _gameController;
+    [SerializeField] private Vector2 _yLimits;
 
     public Rigidbody2D rigidBody;
 
@@ -16,20 +17,31 @@ public class Ball : MonoBehaviour
 
     private void Start()
     {
-        GoToRandomPosition();
+        GoToRandomPosition(PlayerType.User);
     }
 
-    public void GoToRandomPosition()
+    public void GoToRandomPosition(PlayerType playerType)
     {
+        Vector2 initialDirection = Vector2.right;
+        if (playerType == PlayerType.IA)
+        {
+            initialDirection = Vector2.left;
+        }
         if (gameObject != null)
         {
             transform.position = Vector3.zero;
-            gameObject.GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * _speed;
+            gameObject.GetComponent<Rigidbody2D>().velocity = GetRandomVectorInRange(_yLimits, initialDirection) * _speed;
             if (_gameController.CloneBall != null)
             {
                 transform.position = Vector3.zero;
-                gameObject.GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * _speed;
+                gameObject.GetComponent<Rigidbody2D>().velocity = GetRandomVectorInRange(_yLimits, initialDirection) * _speed;
             }
         }
+    }
+
+    public Vector2 GetRandomVectorInRange(Vector2 yLimits, Vector2 direction)
+    {
+        var newDirection = direction + new Vector2(0, Random.Range(yLimits.x, yLimits.y));
+        return newDirection;
     }
 }

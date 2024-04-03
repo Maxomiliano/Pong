@@ -8,11 +8,6 @@ public class SelectableArrow : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     [SerializeField] GameObject _arrow;
 
-    private void OnButtonSelected(PointerEventData data)
-    {
-        
-    }
-
     public void OnSelect(BaseEventData eventData)
     {
         _arrow.SetActive(true);

@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] EventSystem _eventSystem;
+
     [SerializeField] Button _playbutton;
     [SerializeField] GameObject _selectGameModePanel;
     [SerializeField] Button _playerVsPlayer;
@@ -50,6 +52,7 @@ public class MainMenu : MonoBehaviour
 
     private void TogglePlayerVsAI()
     {
+        
         _gameSettings.IsPVP = false;
         Play();
     }
@@ -72,6 +75,7 @@ public class MainMenu : MonoBehaviour
         _creditsPanel.SetActive(false);
         _optionsPanel.SetActive(false);
         _title.SetActive(true);
+        _eventSystem.SetSelectedGameObject(_playerVsPlayer.gameObject);
     }
 
     private void ShowOptionsPanel()

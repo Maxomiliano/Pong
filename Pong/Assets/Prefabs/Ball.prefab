@@ -163,4 +163,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 8
   _gameController: {fileID: 318852742366408777, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
+  _yLimits: {x: -0.6, y: 0.6}
   rigidBody: {fileID: 0}

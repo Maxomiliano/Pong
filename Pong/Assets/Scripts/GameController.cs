@@ -17,10 +17,10 @@ public class GameController : MonoBehaviour
     public GameObject CloneBall;
     private Vector3 _ballInitialPosition;
     private Quaternion _ballInitialRotation;
+
     private void Awake()
     {
-        _canvas.gameObject.SetActive(false);
-        StartCoroutine(_timer.Countdown());
+        _canvas.gameObject.SetActive(false);    
     }
 
     private void OnEnable()
@@ -30,6 +30,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(_timer.Countdown());
         StartCoroutine(ShowCanvasCoroutine());
         SetGameMode();
         CreateBall();
@@ -54,6 +55,7 @@ public class GameController : MonoBehaviour
         _player2AIMovement.enabled = true;
     }
 
+    //Es recomendable no destruir la pelota.
     private void CreateBall()
     {
         _ballInitialPosition = _ball.transform.position;
@@ -67,12 +69,12 @@ public class GameController : MonoBehaviour
         _playerScore.onPointScored -= OnPointScored;
     }
 
-    private void ResetGame()
+    private void ResetGame(PlayerType playerType)
     {
         if (_ball != null)
         {
             CreateBall();
-            _ball.GoToRandomPosition();
+            _ball.GoToRandomPosition(playerType);
         }
         else if (CloneBall != null)
         {
@@ -80,8 +82,8 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void OnPointScored()
+    void OnPointScored(PlayerType playerType)
     {
-        ResetGame();
+        ResetGame(playerType);
     }
 }
