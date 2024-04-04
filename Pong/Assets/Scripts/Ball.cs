@@ -17,23 +17,29 @@ public class Ball : MonoBehaviour
 
     private void Start()
     {
-        GoToRandomPosition(PlayerType.User);
+        PlayerType playerType = Random.value < .5 ? PlayerType.IA : PlayerType.User;
+        GoToRandomPosition(playerType);
     }
+
 
     public void GoToRandomPosition(PlayerType playerType)
     {
-        Vector2 initialDirection = Vector2.right;
+        Vector2 initialDirection = Vector2.zero;
         if (playerType == PlayerType.IA)
+        {
+            initialDirection = Vector2.right;
+        }
+        else if (playerType == PlayerType.User)
         {
             initialDirection = Vector2.left;
         }
         if (gameObject != null)
         {
-            transform.position = Vector3.zero;
+            //transform.position = Vector3.zero;
             gameObject.GetComponent<Rigidbody2D>().velocity = GetRandomVectorInRange(_yLimits, initialDirection) * _speed;
             if (_gameController.CloneBall != null)
             {
-                transform.position = Vector3.zero;
+                //transform.position = Vector3.zero;
                 gameObject.GetComponent<Rigidbody2D>().velocity = GetRandomVectorInRange(_yLimits, initialDirection) * _speed;
             }
         }
@@ -41,7 +47,7 @@ public class Ball : MonoBehaviour
 
     public Vector2 GetRandomVectorInRange(Vector2 yLimits, Vector2 direction)
     {
-        var newDirection = direction + new Vector2(0, Random.Range(yLimits.x, yLimits.y));
+        Vector2 newDirection = direction + new Vector2(0, Random.Range(yLimits.x, yLimits.y));
         return newDirection;
     }
 }
