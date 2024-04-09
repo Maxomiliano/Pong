@@ -33,16 +33,7 @@ public class Ball : MonoBehaviour
         {
             initialDirection = Vector2.left;
         }
-        if (gameObject != null)
-        {
-            //transform.position = Vector3.zero;
-            gameObject.GetComponent<Rigidbody2D>().velocity = GetRandomVectorInRange(_yLimits, initialDirection) * _speed;
-            if (_gameController.CloneBall != null)
-            {
-                //transform.position = Vector3.zero;
-                gameObject.GetComponent<Rigidbody2D>().velocity = GetRandomVectorInRange(_yLimits, initialDirection) * _speed;
-            }
-        }
+        gameObject.GetComponent<Rigidbody2D>().velocity = GetRandomVectorInRange(_yLimits, initialDirection) * _speed;
     }
 
     public Vector2 GetRandomVectorInRange(Vector2 yLimits, Vector2 direction)

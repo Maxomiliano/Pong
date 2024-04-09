@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScoreCollider : MonoBehaviour
 {
     [SerializeField] PlayerScore playerScore;
-    [SerializeField] string colliderID; 
+    [SerializeField] string colliderID;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,6 +13,6 @@ public class ScoreCollider : MonoBehaviour
         {
             playerScore.AddScore(colliderID); //Quién ganó el punto 
         }
-        Destroy(collision.gameObject);
+        //collision.gameObject.SetActive(false);        
     }
 }

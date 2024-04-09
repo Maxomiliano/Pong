@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum PlayerType
 {
@@ -13,6 +12,8 @@ public enum PlayerType
 
 public class PlayerScore : MonoBehaviour
 {
+    private const string PLAYER_1_SCORES = "Player1Scores";
+    private const string PLAYER_2_SCORES = "Player2Scores";
     [SerializeField] int _player1Score = 0;
     [SerializeField] int _player2Score = 0;
     [SerializeField] int _scoreAmount = 1;
@@ -40,16 +41,15 @@ public class PlayerScore : MonoBehaviour
         _player2ScoreText.text = _player2Score.ToString();
     }
 
-    //TODO: NEVER USE MAGIC VALUES 
     public void AddScore(string colliderID)
     {
-        if (colliderID == "Player1Scores")
+        if (colliderID == PLAYER_1_SCORES)
         {
             onPointScored?.Invoke(PlayerType.User);
             _player1Score += _scoreAmount;
             UpdatePlayerOneDisplay();
         }
-        else if (colliderID == "Player2Scores")
+        else if (colliderID == PLAYER_2_SCORES)
         {
             onPointScored?.Invoke(PlayerType.IA);
             _player2Score += _scoreAmount;

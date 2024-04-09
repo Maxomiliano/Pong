@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TestAIMovement : MonoBehaviour
 {
+    [SerializeField] private GameObject ball; 
     public Rigidbody2D rbPaddle;
-    private GameObject ball; 
     public float paddleSpeed = 5.0f;
 
     void Start()

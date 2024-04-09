@@ -14,10 +14,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private UITimer _timer;
     [SerializeField] private Canvas _canvas;
 
-    public GameObject CloneBall;
-    private Vector3 _ballInitialPosition;
-    private Quaternion _ballInitialRotation;
-
     private void Awake()
     {
         _canvas.gameObject.SetActive(false);    
@@ -33,7 +29,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(_timer.Countdown());
         StartCoroutine(ShowCanvasCoroutine());
         SetGameMode();
-        CreateBall();
+        
     }
 
     private IEnumerator ShowCanvasCoroutine()
@@ -55,35 +51,19 @@ public class GameController : MonoBehaviour
         _player2AIMovement.enabled = true;
     }
 
-    //Es recomendable no destruir la pelota.
-    private void CreateBall()
+    private void ResetGame(PlayerType playerType)
     {
-        _ballInitialPosition = _ball.transform.position;
-        _ballInitialRotation = _ball.transform.rotation;
-        CloneBall = Instantiate(_ball.gameObject, _ballInitialPosition, _ballInitialRotation);
-        _player2AIMovement.SetBall(CloneBall); // Update the AI's reference to the new ball
+        _ball.transform.position = new Vector2(0, 0);
+        _ball.GoToRandomPosition(playerType);
+    }
+
+    private void OnPointScored(PlayerType playerType)
+    {
+        ResetGame(playerType);
     }
 
     private void OnDisable()
     {
         _playerScore.onPointScored -= OnPointScored;
-    }
-
-    private void ResetGame(PlayerType playerType)
-    {
-        if (_ball != null)
-        {
-            CreateBall();
-            _ball.GoToRandomPosition(playerType);
-        }
-        else if (CloneBall != null)
-        {
-            Destroy(CloneBall);
-        }
-    }
-
-    void OnPointScored(PlayerType playerType)
-    {
-        ResetGame(playerType);
     }
 }

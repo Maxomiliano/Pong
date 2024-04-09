@@ -261,6 +261,83 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 192997613464453504, guid: ea591d45879076846a9df97550f560a9, type: 3}
   m_PrefabInstance: {fileID: 7697347260869387846}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1187969672
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2785200217879432506, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+      propertyPath: m_Name
+      value: Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873159114688587496, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873159114688587496, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873159114688587496, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873159114688587496, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873159114688587496, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873159114688587496, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873159114688587496, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873159114688587496, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873159114688587496, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873159114688587496, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873159114688587496, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+--- !u!114 &1187969673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6003600533237449362, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+  m_PrefabInstance: {fileID: 1187969672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187969674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7994871f45d0d04abbcb3cda3d2987e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1187969674 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2785200217879432506, guid: 6492d2653afcc10459884a2307850bef, type: 3}
+  m_PrefabInstance: {fileID: 1187969672}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1470349708
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +429,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 2575616078808278355, guid: d068c60e5d69ef243836f6357b51e0ff, type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 1187969674}
     - target: {fileID: 5433799529730015136, guid: d068c60e5d69ef243836f6357b51e0ff, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -442,6 +523,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 318852742366408777, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
+      propertyPath: _ball
+      value: 
+      objectReference: {fileID: 1187969673}
     - target: {fileID: 318852742366408777, guid: 61b00bbb7e0f0534c88e603d7d8b8447, type: 3}
       propertyPath: _timer
       value: 
