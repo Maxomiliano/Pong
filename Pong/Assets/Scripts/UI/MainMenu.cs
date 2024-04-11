@@ -86,6 +86,7 @@ public class MainMenu : MonoBehaviour
         _mainMenuPanel.SetActive(false);
         _creditsPanel.SetActive(false);
         _selectGameModePanel.SetActive(false);
+        _eventSystem.SetSelectedGameObject(_optionsBackButton.gameObject);
     }
 
     private void ShowCreditsPanel()
@@ -96,6 +97,7 @@ public class MainMenu : MonoBehaviour
         _mainMenuPanel.SetActive(false);
         _optionsPanel.SetActive(false);
         _selectGameModePanel.SetActive(false);
+        _eventSystem.SetSelectedGameObject(_creditsBackButton.gameObject);
     }
 
     private void ShowMainMenuPanel()
