@@ -3,9 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    const float MIXER_MIN_VALUE = -80;
+    public static GameController m_instance;
+    public static GameController Instance { get => m_instance; }
     [SerializeField] public Ball _ball;
     [SerializeField] public PlayerScore _playerScore;
     [SerializeField] private GameSettings _gameSettings;
@@ -13,6 +18,27 @@ public class GameController : MonoBehaviour
     [SerializeField] private TestAIMovement _player2AIMovement;
     [SerializeField] private UITimer _timer;
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private SaveData m_saveData;
+    public static Action OnGoToMainMenu;
+
+    public float MusicValue
+    {
+        get => m_saveData.MusicValue;
+        set
+        {
+            m_saveData.MusicValue = value;
+            SaveData();
+        }
+    }
+    public float SFXValue
+    {
+        get => m_saveData.SFXValue;
+        set
+        {
+            m_saveData.SFXValue = value;
+            SaveData();
+        }
+    }
 
     private void Awake()
     {
@@ -28,8 +54,7 @@ public class GameController : MonoBehaviour
     {
         StartCoroutine(_timer.Countdown());
         StartCoroutine(ShowCanvasCoroutine());
-        SetGameMode();
-        
+        SetGameMode();     
     }
 
     private IEnumerator ShowCanvasCoroutine()
@@ -60,6 +85,31 @@ public class GameController : MonoBehaviour
     private void OnPointScored(PlayerType playerType)
     {
         ResetGame(playerType);
+    }
+
+    public static void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        OnGoToMainMenu?.Invoke();
+    }
+
+    public void GoToMainMenuFromVictoryPanel()
+    {
+        SaveData();
+        SceneManager.LoadScene("MainMenu");
+        OnGoToMainMenu?.Invoke();
+    }
+
+    public void SaveData()
+    {
+
+        float musicValue = Mathf.Log10(m_saveData.MusicValue) * 20;
+        if (musicValue == -Mathf.Infinity) musicValue = MIXER_MIN_VALUE;
+        float sfxValue = Mathf.Log10(m_saveData.SFXValue) * 20;
+        if (sfxValue == -Mathf.Infinity) sfxValue = MIXER_MIN_VALUE;
+
+        //m_audioMixer.SetFloat("MusicAmmount", musicValue);
+        //m_audioMixer.SetFloat("SFXAmmount", sfxValue);
     }
 
     private void OnDisable()

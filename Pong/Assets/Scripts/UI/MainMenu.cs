@@ -29,6 +29,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject _title;
     [SerializeField] GameObject _selectedGameObject;
 
+    public static Action OnShowSettingsPanelFromMainMenu;
+
     //Acá va el audio??
 
     private void Awake()
