@@ -9,8 +9,6 @@ public class OptionsPanel : MonoBehaviour
 {
     [SerializeField] Slider m_soundSlider;
     [SerializeField] Slider m_musicSlider;
-    [SerializeField] TMP_Text m_soundText;
-    [SerializeField] TMP_Text m_musicText;
     [SerializeField] Button m_backButton;
     public static Action<bool> OnSettingsPanelStateChanged;
     public static Action BackFromSettingsClick;
@@ -23,12 +21,12 @@ public class OptionsPanel : MonoBehaviour
 
     private void Start()
     {
-        m_soundSlider.value = GameController.Instance.SFXValue;
-        m_musicSlider.value = GameController.Instance.MusicValue;
-        m_soundSlider.onValueChanged.AddListener(OnSFXValueChanged);
-        m_musicSlider.onValueChanged.AddListener(OnMusicValueChanged);
-        m_backButton.onClick.AddListener(OnBackButtonClick);
+        //m_soundSlider.value = GameController.Instance.SFXValue;
+        //m_musicSlider.value = GameController.Instance.MusicValue;
+        //m_soundSlider.onValueChanged.AddListener(OnSFXValueChanged);
+        //m_musicSlider.onValueChanged.AddListener(OnMusicValueChanged);
         //m_backButton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
+        m_backButton.onClick.AddListener(OnBackButtonClick);
         gameObject.SetActive(false);
     }
 
@@ -47,6 +45,7 @@ public class OptionsPanel : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    /*
     void OnSFXValueChanged(float value)
     {
         GameController.Instance.SFXValue = value;
@@ -56,9 +55,9 @@ public class OptionsPanel : MonoBehaviour
     {
         GameController.Instance.MusicValue = value;
     }
+    */
 
-
-    void OnBackButtonClick()
+    private void OnBackButtonClick()
     {
         //SFXController.Instance.PlayPopupOpensSFX();
         gameObject.SetActive(false);

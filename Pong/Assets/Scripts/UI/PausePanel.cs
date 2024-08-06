@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PausePanel : MonoBehaviour
@@ -12,24 +13,31 @@ public class PausePanel : MonoBehaviour
     public static Action<bool> OnPausePanelStateChanged;
     public static Action OnShowSettingsPanelButtonPress;
 
+    private PlayerInputActions playerInputActions;
+
+    private void Awake()
+    {
+        playerInputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        playerInputActions.UI.Pause.performed += OnPausePressed;
+        playerInputActions.UI.Enable();
+    }
+
     private void Start()
     {
         m_resumeButton.onClick.AddListener(ResumeGame);
-        //m_resumeButton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
         m_settingsButton.onClick.AddListener(ShowSettingsPanelButtonPress);
-        //m_settingsButton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
         m_mainMenuButton.onClick.AddListener(GameController.GoToMainMenu);
-        //m_mainMenuButton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
-        //m_mainMenuButton.onClick.AddListener(ResumeGame);
         gameObject.SetActive(false);
     }
 
-    //GameController press P
     private void ShowPauseMenuPanel()
     {
         if (gameObject.activeInHierarchy)
             return;
-        //SFXController.Instance.PlayPopupOpensSFX();
         OnPausePanelStateChanged?.Invoke(true);
         gameObject.SetActive(true);
         Time.timeScale = 0;
@@ -48,12 +56,22 @@ public class PausePanel : MonoBehaviour
         ShowPauseMenuPanel();
     }
 
-    //GameController press ESC
     public void ResumeGame()
     {
-        //SFXController.Instance.PlayPopupOpensSFX();
         gameObject.SetActive(false);
         OnPausePanelStateChanged?.Invoke(false);
         Time.timeScale = 1;
+    }
+
+    private void OnPausePressed(InputAction.CallbackContext context)
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            ResumeGame();
+        }
+        else
+        {
+            ShowPauseMenuPanel();
+        }
     }
 }
