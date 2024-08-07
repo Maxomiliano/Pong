@@ -5,80 +5,71 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class PausePanel : MonoBehaviour
+public class PausePanel : Window
 {
     [SerializeField] Button m_resumeButton;
     [SerializeField] Button m_settingsButton;
     [SerializeField] Button m_mainMenuButton;
-    public static Action<bool> OnPausePanelStateChanged;
-    public static Action OnShowSettingsPanelButtonPress;
 
-    private PlayerInputActions playerInputActions;
-
-    private void Awake()
-    {
-        playerInputActions = new PlayerInputActions();
-    }
-
-    private void OnEnable()
-    {
-        playerInputActions.UI.Pause.performed += OnPausePressed;
-        playerInputActions.UI.Enable();
-    }
     /*
-    private void OnDisable()
+    protected override void Awake()
     {
-        playerInputActions.UI.Pause.performed -= OnPausePressed;
-        playerInputActions.UI.Disable();
+        base.Awake();
+        _playerInputActions.UI.Pause.performed += OnPausePressed;
+    }
+
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        m_resumeButton.onClick.AddListener(ClosePanel);
+        //m_settingsButton.onClick.AddListener(ShowSettingsPanelButtonPress);
+        m_mainMenuButton.onClick.AddListener(GameController.GoToMainMenu);
+    }
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        _playerInputActions.UI.Pause.performed -= OnPausePressed;
+        m_resumeButton.onClick.RemoveListener(ClosePanel);
+        //m_settingsButton.onClick.RemoveListener(ShowSettingsPanelButtonPress);
+        m_mainMenuButton.onClick.RemoveListener(GameController.GoToMainMenu);
     }
     */
-
     private void Start()
     {
-        m_resumeButton.onClick.AddListener(ResumeGame);
-        m_settingsButton.onClick.AddListener(ShowSettingsPanelButtonPress);
-        m_mainMenuButton.onClick.AddListener(GameController.GoToMainMenu);
-        gameObject.SetActive(false);
+        _playerInputActions.UI.Pause.performed += OnPausePressed;
+    }
+    private void OnDestroy()
+    {
+        _playerInputActions.UI.Pause.performed -= OnPausePressed;
     }
 
-    private void ShowPauseMenuPanel()
+    private void OnPausePressed(InputAction.CallbackContext context)
     {
-        if (gameObject.activeInHierarchy)
-            return;
-        OnPausePanelStateChanged?.Invoke(true);
-        gameObject.SetActive(true);
-        Time.timeScale = 0;
+        Debug.Log("Pause button pressed");
+        if (WindowsManager.Instance.GetCurrentPanel() == this)
+        {
+            ClosePanel();
+            Time.timeScale = 1;
+        }
+        else
+        {
+            OpenPanel();
+            Time.timeScale = 0;
+        }
     }
 
-    public void ShowSettingsPanelButtonPress()
+    /*
+    private void ShowSettingsPanelButtonPress()
     {
-        OnShowSettingsPanelButtonPress?.Invoke();
         OptionsPanel.BackFromSettingsClick += BackFromSettingsPanel;
-        gameObject.SetActive(false);
+        WindowsManager.Instance.GetCurrentPanel().ClosePanel();
     }
 
     private void BackFromSettingsPanel()
     {
         OptionsPanel.BackFromSettingsClick -= BackFromSettingsPanel;
-        ShowPauseMenuPanel();
+        WindowsManager.Instance.PopWindow();
     }
-
-    public void ResumeGame()
-    {
-        gameObject.SetActive(false);
-        OnPausePanelStateChanged?.Invoke(false);
-        Time.timeScale = 1;
-    }
-
-    private void OnPausePressed(InputAction.CallbackContext context)
-    {
-        if (gameObject.activeInHierarchy)
-        {
-            ResumeGame();
-        }
-        else
-        {
-            ShowPauseMenuPanel();
-        }
-    }
+    */
 }

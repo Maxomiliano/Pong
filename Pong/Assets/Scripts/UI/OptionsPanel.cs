@@ -6,91 +6,36 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class OptionsPanel : MonoBehaviour
+public class OptionsPanel : Window
 {
     [SerializeField] Slider m_soundSlider;
     [SerializeField] Slider m_musicSlider;
     [SerializeField] Button m_backButton;
-    public static Action<bool> OnSettingsPanelStateChanged;
     public static Action BackFromSettingsClick;
-    private PlayerInputActions playerInputActions;
 
-    private void Awake()
+    protected override void OnEnable()
     {
-        playerInputActions = new PlayerInputActions();
-        PausePanel.OnShowSettingsPanelButtonPress += ShowSettingsPanel;
-        MainMenu.OnShowSettingsPanelFromMainMenu += ShowSettingsPanel;
-    }
-    private void OnEnable()
-    {
-        playerInputActions.UI.Cancel.performed += OnBackButtonPressed;
-        playerInputActions.UI.Enable();
-    }
-
-    private void Start()
-    {
-        //m_soundSlider.value = GameController.Instance.SFXValue;
-        //m_musicSlider.value = GameController.Instance.MusicValue;
-        //m_soundSlider.onValueChanged.AddListener(OnSFXValueChanged);
-        //m_musicSlider.onValueChanged.AddListener(OnMusicValueChanged);
-        //m_backButton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
+        base.OnEnable();
         m_backButton.onClick.AddListener(OnBackButtonClick);
-        gameObject.SetActive(false);
+        _playerInputActions.UI.Cancel.performed += OnBackButtonPressed;
     }
 
-    private void OnDestroy()
+    protected override void OnDisable()
     {
-        PausePanel.OnShowSettingsPanelButtonPress -= ShowSettingsPanel;
-        MainMenu.OnShowSettingsPanelFromMainMenu -= ShowSettingsPanel;
+        base.OnDisable();
+        m_backButton.onClick.RemoveListener(OnBackButtonClick);
+        _playerInputActions.UI.Cancel.performed -= OnBackButtonPressed;
     }
-
-    private void ShowSettingsPanel()
-    {
-        if (gameObject.activeInHierarchy)
-            return;
-        //SFXController.Instance.PlayPopupOpensSFX();
-        OnSettingsPanelStateChanged?.Invoke(true);
-        gameObject.SetActive(true);
-    }
-
-    /*
-    void OnSFXValueChanged(float value)
-    {
-        GameController.Instance.SFXValue = value;
-    }
-
-    void OnMusicValueChanged(float value)
-    {
-        GameController.Instance.MusicValue = value;
-    }
-    */
-
+    
     private void OnBackButtonClick()
     {
-        //SFXController.Instance.PlayPopupOpensSFX();
-        if (gameObject.activeInHierarchy)
-        {
-            gameObject.SetActive(false);
-            OnSettingsPanelStateChanged?.Invoke(false);
-            BackFromSettingsClick?.Invoke();
-        }
-        else
-        {
-            ShowSettingsPanel();
-        }
+        BackFromSettingsClick?.Invoke();
+        ClosePanel();
     }
-
+    
     private void OnBackButtonPressed(InputAction.CallbackContext context)
     {
-        if (gameObject.activeInHierarchy)
-        {
-            gameObject.SetActive(false);
-            OnSettingsPanelStateChanged?.Invoke(false);
-            BackFromSettingsClick?.Invoke();
-        }
-        else
-        {
-            ShowSettingsPanel();
-        }
+        BackFromSettingsClick?.Invoke();
+        ClosePanel();
     }
 }
