@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class OptionsPanel : MonoBehaviour
@@ -12,11 +13,18 @@ public class OptionsPanel : MonoBehaviour
     [SerializeField] Button m_backButton;
     public static Action<bool> OnSettingsPanelStateChanged;
     public static Action BackFromSettingsClick;
+    private PlayerInputActions playerInputActions;
 
     private void Awake()
     {
+        playerInputActions = new PlayerInputActions();
         PausePanel.OnShowSettingsPanelButtonPress += ShowSettingsPanel;
         MainMenu.OnShowSettingsPanelFromMainMenu += ShowSettingsPanel;
+    }
+    private void OnEnable()
+    {
+        playerInputActions.UI.Cancel.performed += OnBackButtonPressed;
+        playerInputActions.UI.Enable();
     }
 
     private void Start()
@@ -33,7 +41,7 @@ public class OptionsPanel : MonoBehaviour
     private void OnDestroy()
     {
         PausePanel.OnShowSettingsPanelButtonPress -= ShowSettingsPanel;
-        //MainMenuCanvas.OnShowSettingsPanelFromMainMenu -= ShowSettingsPanel;
+        MainMenu.OnShowSettingsPanelFromMainMenu -= ShowSettingsPanel;
     }
 
     private void ShowSettingsPanel()
@@ -60,7 +68,29 @@ public class OptionsPanel : MonoBehaviour
     private void OnBackButtonClick()
     {
         //SFXController.Instance.PlayPopupOpensSFX();
-        gameObject.SetActive(false);
-        BackFromSettingsClick?.Invoke();
+        if (gameObject.activeInHierarchy)
+        {
+            gameObject.SetActive(false);
+            OnSettingsPanelStateChanged?.Invoke(false);
+            BackFromSettingsClick?.Invoke();
+        }
+        else
+        {
+            ShowSettingsPanel();
+        }
+    }
+
+    private void OnBackButtonPressed(InputAction.CallbackContext context)
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            gameObject.SetActive(false);
+            OnSettingsPanelStateChanged?.Invoke(false);
+            BackFromSettingsClick?.Invoke();
+        }
+        else
+        {
+            ShowSettingsPanel();
+        }
     }
 }

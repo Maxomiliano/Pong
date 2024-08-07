@@ -25,6 +25,13 @@ public class PausePanel : MonoBehaviour
         playerInputActions.UI.Pause.performed += OnPausePressed;
         playerInputActions.UI.Enable();
     }
+    /*
+    private void OnDisable()
+    {
+        playerInputActions.UI.Pause.performed -= OnPausePressed;
+        playerInputActions.UI.Disable();
+    }
+    */
 
     private void Start()
     {

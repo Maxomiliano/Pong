@@ -726,6 +726,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""39dcb98a-5b16-4da6-b028-8d5247e4e5d7"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c52c8e0b-8179-41d3-b8a1-d149033bbe86"",
                     ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
