@@ -13,29 +13,22 @@ public class OptionsPanel : Window
     [SerializeField] Button m_backButton;
     public static Action BackFromSettingsClick;
 
-    protected override void OnEnable()
+    private void Start()
     {
-        base.OnEnable();
-        m_backButton.onClick.AddListener(OnBackButtonClick);
-        _playerInputActions.UI.Cancel.performed += OnBackButtonPressed;
+        m_backButton.onClick.AddListener(ClosePanel);
     }
 
-    protected override void OnDisable()
+    private void OnDestroy()
     {
-        base.OnDisable();
-        m_backButton.onClick.RemoveListener(OnBackButtonClick);
-        _playerInputActions.UI.Cancel.performed -= OnBackButtonPressed;
+        m_backButton.onClick.RemoveListener(ClosePanel);
     }
     
-    private void OnBackButtonClick()
-    {
-        BackFromSettingsClick?.Invoke();
-        ClosePanel();
-    }
     
+    /*
     private void OnBackButtonPressed(InputAction.CallbackContext context)
     {
         BackFromSettingsClick?.Invoke();
         ClosePanel();
     }
+    */
 }

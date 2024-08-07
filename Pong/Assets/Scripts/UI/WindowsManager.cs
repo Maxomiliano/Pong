@@ -27,21 +27,19 @@ public class WindowsManager : MonoBehaviour
             _windowsStack.Peek().gameObject.SetActive(false);
         }
         _windowsStack.Push(window);
-        Debug.Log("Opened panel: " + window.name);
+        Debug.Log("Opened window: " + window.name);
     }
 
     public void PopWindow()
     {
+        if (_windowsStack.Count == 0) return;
+        Window topWindow = _windowsStack.Pop();
+        topWindow.gameObject.SetActive(false);
+        Debug.Log("Closed window: " + topWindow.name);
         if (_windowsStack.Count > 0)
         {
-            Window topWindow = _windowsStack.Pop();
-            topWindow.gameObject.SetActive(false);
-            Debug.Log("Closed window: " + topWindow.name);
-            if (_windowsStack.Count > 0)
-            {
-                _windowsStack.Peek().gameObject.SetActive(true);
-                Debug.Log("Current top panel: " + _windowsStack.Peek().name);
-            }
+            _windowsStack.Peek().gameObject.SetActive(true);
+            Debug.Log("Current top panel: " + _windowsStack.Peek().name);
         }
     }
 
