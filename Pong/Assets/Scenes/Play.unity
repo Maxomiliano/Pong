@@ -631,7 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39856af0c36d5d4cb996c7838f05eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pausePanel: {fileID: 1540057085}
+  _pausePanel: {fileID: 1540057085}
 --- !u!114 &2008015457 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 505144778276620430, guid: ea591d45879076846a9df97550f560a9, type: 3}

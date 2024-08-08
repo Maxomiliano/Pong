@@ -5,8 +5,9 @@ using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
-    [SerializeField] GameObject m_pausePanel;
+    [SerializeField] GameObject _pausePanel;
     private PlayerInputActions _playerInputActions;
+    bool _isPausePanelOpen = false;
 
     private void Awake()
     {
@@ -26,32 +27,28 @@ public class InputHandler : MonoBehaviour
 
     private void OnPausePressed(InputAction.CallbackContext context)
     {
-        //Window currentWindow = WindowsManager.Instance.GetCurrentPanel();
-        if (m_pausePanel.gameObject.activeInHierarchy)
+        if (!_pausePanel.activeInHierarchy)
         {
-            m_pausePanel.GetComponent<PausePanel>().ClosePanel();
+            _pausePanel.GetComponent<PausePanel>().OpenPanel();
+            _isPausePanelOpen = true;
         }
         else
         {
-            /*
-            PausePanel pauseWindow = m_pausePanel.GetComponent<PausePanel>();
-            if(pauseWindow != null) 
-            {
-                pauseWindow.OpenPanel();
-            }
-            */
-            m_pausePanel.GetComponentInChildren<PausePanel>().OpenPanel();
+            _pausePanel.GetComponent<PausePanel>().ClosePanel();
+            _isPausePanelOpen = false;
         }
     }
+    
     private void OnCancelPressed(InputAction.CallbackContext context)
-    {
-        if (m_pausePanel.activeInHierarchy)
+    {  
+        if (_isPausePanelOpen)
         {
-            m_pausePanel.GetComponent<PausePanel>().ClosePanel();
+            return;
         }
         else
         {
             WindowsManager.Instance.PopWindow();
         }
     }
+    
 }
