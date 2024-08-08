@@ -8,27 +8,18 @@ using UnityEngine.UI;
 
 public class OptionsPanel : Window
 {
-    [SerializeField] Slider m_soundSlider;
-    [SerializeField] Slider m_musicSlider;
-    [SerializeField] Button m_backButton;
+    [SerializeField] Slider _soundSlider;
+    [SerializeField] Slider _musicSlider;
+    [SerializeField] Button _backButton;
     public static Action BackFromSettingsClick;
 
     private void Start()
     {
-        m_backButton.onClick.AddListener(ClosePanel);
+        _backButton.onClick.AddListener(CloseWindow);
     }
 
     private void OnDestroy()
     {
-        m_backButton.onClick.RemoveListener(ClosePanel);
+        _backButton.onClick.RemoveListener(CloseWindow);
     }
-    
-    
-    /*
-    private void OnBackButtonPressed(InputAction.CallbackContext context)
-    {
-        BackFromSettingsClick?.Invoke();
-        ClosePanel();
-    }
-    */
 }

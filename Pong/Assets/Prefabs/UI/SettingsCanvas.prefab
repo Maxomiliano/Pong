@@ -1586,7 +1586,7 @@ RectTransform:
   m_Children:
   - {fileID: 9054367268543755635}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1668,11 +1668,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 769c6480fde2e8c49a99edf6b0807936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_soundSlider: {fileID: 3417099016764916903}
-  m_musicSlider: {fileID: 7067090268470433350}
-  m_soundText: {fileID: 0}
-  m_musicText: {fileID: 0}
-  m_backButton: {fileID: 6383180322987712218}
+  _soundSlider: {fileID: 3417099016764916903}
+  _musicSlider: {fileID: 7067090268470433350}
+  _backButton: {fileID: 6383180322987712218}
 --- !u!1 &8223724334783498618
 GameObject:
   m_ObjectHideFlags: 0

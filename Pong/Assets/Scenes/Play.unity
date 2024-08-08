@@ -823,6 +823,10 @@ PrefabInstance:
       propertyPath: m_optionsPanel
       value: 
       objectReference: {fileID: 1073410092}
+    - target: {fileID: 7397155438508137267, guid: c8cb5ef5233b57b4fa391b64f6974f9e, type: 3}
+      propertyPath: _settingsWindow
+      value: 
+      objectReference: {fileID: 1073410092}
     - target: {fileID: 8271857655343947422, guid: c8cb5ef5233b57b4fa391b64f6974f9e, type: 3}
       propertyPath: m_Name
       value: PausePanel

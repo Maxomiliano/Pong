@@ -7,34 +7,37 @@ using UnityEngine.UI;
 
 public class PausePanel : Window
 {
-    [SerializeField] Button m_resumeButton;
-    [SerializeField] Button m_settingsButton;
-    [SerializeField] Button m_mainMenuButton;
+    [SerializeField] Button _resumeButton;
+    [SerializeField] Button _settingsButton;
+    [SerializeField] Button _mainMenuButton;
+    [SerializeField] GameObject _settingsWindow;
 
     private void Start()
     {
-        m_resumeButton.onClick.AddListener(ClosePanel);
-        m_mainMenuButton.onClick.AddListener(GameController.GoToMainMenu);
-        //m_settingsButton.onClick.AddListener(ShowSettingsPanelButtonPress);
+        _resumeButton.onClick.AddListener(CloseWindow);
+        _mainMenuButton.onClick.AddListener(GameController.GoToMainMenu);
+        _settingsButton.onClick.AddListener(OpenSettingsWindow);
     }
     private void OnDestroy()
     {
-        m_resumeButton.onClick.RemoveListener(ClosePanel);
-        m_mainMenuButton.onClick.RemoveListener(GameController.GoToMainMenu);
-        //m_settingsButton.onClick.RemoveListener(ShowSettingsPanelButtonPress);
+        _resumeButton.onClick.RemoveListener(CloseWindow);
+        _mainMenuButton.onClick.RemoveListener(GameController.GoToMainMenu);
+        _settingsButton.onClick.RemoveListener(OpenSettingsWindow);
     }
 
-    /*
-    private void ShowSettingsPanelButtonPress()
+    
+    private void OpenSettingsWindow()
     {
-        OptionsPanel.BackFromSettingsClick += BackFromSettingsPanel;
-        WindowsManager.Instance.GetCurrentPanel().ClosePanel();
+        //OptionsPanel.BackFromSettingsClick += BackFromSettingsPanel;
+        //WindowsManager.Instance.GetCurrentPanel().CloseWindow();
+        _settingsWindow.GetComponent<Window>().OpenWindow();
     }
-
+    
+    /*
     private void BackFromSettingsPanel()
     {
         OptionsPanel.BackFromSettingsClick -= BackFromSettingsPanel;
         WindowsManager.Instance.PopWindow();
-    }
+    } 
     */
 }

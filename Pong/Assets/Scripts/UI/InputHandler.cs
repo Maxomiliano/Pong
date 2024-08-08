@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,8 +15,8 @@ public class InputHandler : MonoBehaviour
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.UI.Pause.performed += OnPausePressed;
         _playerInputActions.UI.Cancel.performed += OnCancelPressed;
-
     }
+
     private void OnEnable()
     {
         _playerInputActions.UI.Enable();
@@ -29,12 +30,12 @@ public class InputHandler : MonoBehaviour
     {
         if (!_pausePanel.activeInHierarchy)
         {
-            _pausePanel.GetComponent<PausePanel>().OpenPanel();
+            _pausePanel.GetComponent<PausePanel>().OpenWindow();
             _isPausePanelOpen = true;
         }
         else
         {
-            _pausePanel.GetComponent<PausePanel>().ClosePanel();
+            _pausePanel.GetComponent<PausePanel>().CloseWindow();
             _isPausePanelOpen = false;
         }
     }
@@ -50,5 +51,4 @@ public class InputHandler : MonoBehaviour
             WindowsManager.Instance.PopWindow();
         }
     }
-    
 }

@@ -1197,7 +1197,7 @@ RectTransform:
   m_Children:
   - {fileID: 2972755345061934088}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1279,6 +1279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc46078f19a9bf047b286b4316ec88e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_resumeButton: {fileID: 2479060748056943428}
-  m_settingsButton: {fileID: 2116513318522333261}
-  m_mainMenuButton: {fileID: 6795332160837911487}
+  _resumeButton: {fileID: 2479060748056943428}
+  _settingsButton: {fileID: 2116513318522333261}
+  _mainMenuButton: {fileID: 6795332160837911487}
+  _settingsWindow: {fileID: 0}
