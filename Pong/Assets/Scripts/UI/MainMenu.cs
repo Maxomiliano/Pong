@@ -11,17 +11,17 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] EventSystem _eventSystem;
 
-    [SerializeField] Button _playbutton;
-    [SerializeField] GameObject _selectGameModePanel;
     [SerializeField] Button _playerVsPlayer;
     [SerializeField] Button _playerVsAI;
 
+    [SerializeField] Button _playbutton;
     [SerializeField] Button _quitButton;
     [SerializeField] Button _optionsButton;
     [SerializeField] Button _creditsButton;
     [SerializeField] Button _optionsBackButton;
     [SerializeField] Button _gameModeBackButton;
     [SerializeField] Button _creditsBackButton;
+    [SerializeField] GameObject _selectGameModePanel;
     [SerializeField] GameObject _optionsPanel;
     [SerializeField] GameObject _creditsPanel;
     [SerializeField] GameObject _mainMenuPanel;
@@ -83,8 +83,9 @@ public class MainMenu : MonoBehaviour
     private void ShowOptionsPanel()
     {
         _selectedGameObject = EventSystem.current.currentSelectedGameObject;
+        _optionsPanel.GetComponent<Window>().OpenWindow();
         _title.SetActive(true);
-        _optionsPanel.SetActive(true);
+        //_optionsPanel.SetActive(true);
         _mainMenuPanel.SetActive(false);
         _creditsPanel.SetActive(false);
         _selectGameModePanel.SetActive(false);

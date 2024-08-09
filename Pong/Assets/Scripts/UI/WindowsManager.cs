@@ -22,12 +22,12 @@ public class WindowsManager : MonoBehaviour
 
     public void PushWindow(Window window)
     {
-        /*
+        
         if (_windowsStack.Count > 0)
         {
             _windowsStack.Peek().gameObject.SetActive(false);
         }
-        */
+        
         _windowsStack.Push(window);
         Debug.Log("Opened window: " + window.name);
     }

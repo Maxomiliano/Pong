@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Window : MonoBehaviour
+public class Window : MonoBehaviour
 {
+    public bool IsCloseable = true;
     public virtual void OpenWindow()
     {
         WindowsManager.Instance.PushWindow(this);

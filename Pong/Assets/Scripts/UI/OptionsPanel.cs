@@ -13,12 +13,12 @@ public class OptionsPanel : Window
     [SerializeField] Button _backButton;
     public static Action BackFromSettingsClick;
 
-    private void Start()
+    private void OnEnable()
     {
         _backButton.onClick.AddListener(CloseWindow);
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         _backButton.onClick.RemoveListener(CloseWindow);
     }

@@ -10,15 +10,15 @@ public class PausePanel : Window
     [SerializeField] Button _resumeButton;
     [SerializeField] Button _settingsButton;
     [SerializeField] Button _mainMenuButton;
-    [SerializeField] GameObject _settingsWindow;
+    [SerializeField] Window _settingsWindow;
 
-    private void Start()
+    private void OnEnable()
     {
         _resumeButton.onClick.AddListener(CloseWindow);
         _mainMenuButton.onClick.AddListener(GameController.GoToMainMenu);
         _settingsButton.onClick.AddListener(OpenSettingsWindow);
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         _resumeButton.onClick.RemoveListener(CloseWindow);
         _mainMenuButton.onClick.RemoveListener(GameController.GoToMainMenu);
@@ -30,7 +30,8 @@ public class PausePanel : Window
     {
         //OptionsPanel.BackFromSettingsClick += BackFromSettingsPanel;
         //WindowsManager.Instance.GetCurrentPanel().CloseWindow();
-        _settingsWindow.GetComponent<Window>().OpenWindow();
+        _settingsWindow.OpenWindow();
+        
     }
     
     /*

@@ -6,15 +6,14 @@ using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
-    [SerializeField] GameObject _pausePanel;
+    [SerializeField] Window _entryPointWindow;
     private PlayerInputActions _playerInputActions;
-    bool _isPausePanelOpen = false;
 
     private void Awake()
     {
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.UI.Pause.performed += OnPausePressed;
-        _playerInputActions.UI.Cancel.performed += OnCancelPressed;
+        _playerInputActions.UI.Cancel.performed += OnPausePressed;
     }
 
     private void OnEnable()
@@ -28,27 +27,16 @@ public class InputHandler : MonoBehaviour
 
     private void OnPausePressed(InputAction.CallbackContext context)
     {
-        if (!_pausePanel.activeInHierarchy)
+        Window currentPanel = WindowsManager.Instance.GetCurrentPanel();
+        if (currentPanel != null)
         {
-            _pausePanel.GetComponent<PausePanel>().OpenWindow();
-            _isPausePanelOpen = true;
+            if(currentPanel.IsCloseable)
+                currentPanel.CloseWindow();
         }
-        else
+        else 
         {
-            _pausePanel.GetComponent<PausePanel>().CloseWindow();
-            _isPausePanelOpen = false;
-        }
-    }
-    
-    private void OnCancelPressed(InputAction.CallbackContext context)
-    {  
-        if (_isPausePanelOpen)
-        {
-            return;
-        }
-        else
-        {
-            WindowsManager.Instance.PopWindow();
+            if(_entryPointWindow != null)
+                _entryPointWindow.OpenWindow();
         }
     }
 }

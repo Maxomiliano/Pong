@@ -627,6 +627,7 @@ GameObject:
   - component: {fileID: 9170468535695625202}
   - component: {fileID: 475256651765445146}
   - component: {fileID: 2109987199534796124}
+  - component: {fileID: 7438044085477401596}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -751,6 +752,19 @@ MonoBehaviour:
   _gameSettings: {fileID: 11400000, guid: c99083029880c044aa3167856ee0db0c, type: 2}
   _title: {fileID: 6017985075268075143}
   _selectedGameObject: {fileID: 0}
+--- !u!114 &7438044085477401596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007435064913562683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39856af0c36d5d4cb996c7838f05eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entryPointWindow: {fileID: 0}
 --- !u!1 &2100747491988354656
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,6 +2206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 525388430242509951}
   - component: {fileID: 4496720948803184380}
+  - component: {fileID: 1918980642597588424}
   m_Layer: 5
   m_Name: CreditsPanel
   m_TagString: Untagged
@@ -2228,6 +2243,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5247515804579567624}
   m_CullTransparentMesh: 1
+--- !u!114 &1918980642597588424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5247515804579567624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c61b138929d55468676bccb95a01dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5354208759718886600
 GameObject:
   m_ObjectHideFlags: 0
@@ -4574,6 +4601,7 @@ GameObject:
   - component: {fileID: 2563309738651668485}
   - component: {fileID: 6849669687355982947}
   - component: {fileID: 1523650995167256188}
+  - component: {fileID: 5925642612570158554}
   m_Layer: 5
   m_Name: PlayPanel
   m_TagString: Untagged
@@ -4638,6 +4666,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &5925642612570158554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9047420964004333246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c61b138929d55468676bccb95a01dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9155023452317020267
 GameObject:
   m_ObjectHideFlags: 0
@@ -4793,9 +4833,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 769c6480fde2e8c49a99edf6b0807936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_soundSlider: {fileID: 8434409041443210570}
-  m_musicSlider: {fileID: 9062747805632079666}
-  m_backButton: {fileID: 6105813375015537726}
+  _soundSlider: {fileID: 8434409041443210570}
+  _musicSlider: {fileID: 9062747805632079666}
+  _backButton: {fileID: 6105813375015537726}
 --- !u!1001 &188848410715466188
 PrefabInstance:
   m_ObjectHideFlags: 0
