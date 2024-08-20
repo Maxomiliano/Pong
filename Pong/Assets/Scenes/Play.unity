@@ -815,6 +815,10 @@ PrefabInstance:
       value: -83.537506
       objectReference: {fileID: 0}
     - target: {fileID: 7397155438508137267, guid: c8cb5ef5233b57b4fa391b64f6974f9e, type: 3}
+      propertyPath: IsCloseable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7397155438508137267, guid: c8cb5ef5233b57b4fa391b64f6974f9e, type: 3}
       propertyPath: m_optionsPanel
       value: 
       objectReference: {fileID: 1073410092}
@@ -1244,6 +1248,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3715901423564298950, guid: 2e7f4a56531f39347acf81e76c31d1cb, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724850611242921913, guid: 2e7f4a56531f39347acf81e76c31d1cb, type: 3}
+      propertyPath: IsCloseable
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3755165542198495700, guid: 2e7f4a56531f39347acf81e76c31d1cb, type: 3}

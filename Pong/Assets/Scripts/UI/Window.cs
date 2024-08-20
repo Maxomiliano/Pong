@@ -9,13 +9,13 @@ public class Window : MonoBehaviour
     {
         WindowsManager.Instance.PushWindow(this);
         gameObject.SetActive(true);
-        Time.timeScale = 0; //cambiar esto de lugae
+        Time.timeScale = 0; //Cambiar esto de lugar
     }
 
     public virtual void CloseWindow() 
     {
         WindowsManager.Instance.PopWindow();
         gameObject.SetActive(false);
-        Time.timeScale = 1; //esto tambien
+        Time.timeScale = 1; //Cambiar esto de lugar
     }
 }

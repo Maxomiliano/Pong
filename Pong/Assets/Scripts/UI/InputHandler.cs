@@ -30,12 +30,12 @@ public class InputHandler : MonoBehaviour
         Window currentPanel = WindowsManager.Instance.GetCurrentPanel();
         if (currentPanel != null)
         {
-            if(currentPanel.IsCloseable)
+            if (currentPanel.IsCloseable)
                 currentPanel.CloseWindow();
         }
-        else 
+        else
         {
-            if(_entryPointWindow != null)
+            if (_entryPointWindow != null)
                 _entryPointWindow.OpenWindow();
         }
     }
