@@ -24,21 +24,9 @@ public class PausePanel : Window
         _mainMenuButton.onClick.RemoveListener(GameController.GoToMainMenu);
         _settingsButton.onClick.RemoveListener(OpenSettingsWindow);
     }
-
     
     private void OpenSettingsWindow()
     {
-        //OptionsPanel.BackFromSettingsClick += BackFromSettingsPanel;
-        //WindowsManager.Instance.GetCurrentPanel().CloseWindow();
-        _settingsWindow.OpenWindow();
-        
+        _settingsWindow.OpenWindow(); 
     }
-    
-    /*
-    private void BackFromSettingsPanel()
-    {
-        OptionsPanel.BackFromSettingsClick -= BackFromSettingsPanel;
-        WindowsManager.Instance.PopWindow();
-    } 
-    */
 }
