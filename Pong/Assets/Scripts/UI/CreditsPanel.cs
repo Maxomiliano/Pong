@@ -1,19 +1,13 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class OptionsPanel : Window
+public class CreditsPanel : Window
 {
-    [SerializeField] Slider _soundSlider;
-    [SerializeField] Slider _musicSlider;
-    [SerializeField] Button _backButton;
     [SerializeField] EventSystem _eventSystem;
-    public static Action BackFromSettingsClick;
+    [SerializeField] Button _backButton;
 
     private void Start()
     {
