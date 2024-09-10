@@ -1,35 +1,37 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class VictoryPanel : MonoBehaviour
+public class VictoryPanel : Window
 {
-    [SerializeField] GameObject[] m_stars;
-    [SerializeField] GameObject m_badges;
-    [SerializeField] Button m_mainMenuButton;
+    [SerializeField] Window _victoryPanel;
+    [SerializeField] Button _mainMenuButton;
+    [SerializeField] TMP_Text _victoryText;
 
-    public Action<bool> OnVictoryViewStateChanged;
-    public Action OnVictoryPanelShowed;
-   
-
-    void Start()
+    void OnEnable()
     {
-        gameObject.SetActive(false);
-        m_mainMenuButton.onClick.AddListener(GameController.Instance.GoToMainMenuFromVictoryPanel);
-        //m_mainMenuButton.onClick.AddListener(() => SFXController.Instance.PlayButtonPressSFX());
+        _mainMenuButton.onClick.AddListener(GameController.Instance.GoToMainMenuFromVictoryPanel);
+    }
+    void OnDisable()
+    {
+        _mainMenuButton.onClick.RemoveListener(GameController.Instance.GoToMainMenuFromVictoryPanel);
     }
 
-    public void ShowVictoryPanel()
+    public void ShowVictoryPanel(string playerID)
     {
-
-            //MusicController.Instance.SetVictoryPanelTheme();
-            OnVictoryViewStateChanged?.Invoke(true);
-            gameObject.SetActive(true);
-            m_mainMenuButton.gameObject.SetActive(true);
-            //SFXController.Instance.PlayPopupOpensSFX();
-            OnVictoryPanelShowed?.Invoke();
+        if (playerID == "Player1Scores")
+        {
+            _victoryText.text = "Player 1 Wins!";
+        }
+        else if (playerID == "Player2Scores")
+        {
+            _victoryText.text = "Player 2 Wins!";
+        }
+        _victoryPanel.OpenWindow();
+        //Time.timeScale = 0;
     }
 }

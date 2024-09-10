@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private Canvas _canvas;
     [SerializeField] private SaveData m_saveData;
     public static Action OnGoToMainMenu;
+    [SerializeField] VictoryPanel _victoryPanel;
 
     public float MusicValue
     {
@@ -42,6 +43,14 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        if (m_instance == null)
+        {
+            m_instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         _canvas.gameObject.SetActive(false);    
     }
 
@@ -95,11 +104,11 @@ public class GameController : MonoBehaviour
 
     public void GoToMainMenuFromVictoryPanel()
     {
-        SaveData();
+        //SaveData();
         SceneManager.LoadScene("MainMenu");
         OnGoToMainMenu?.Invoke();
     }
-
+    
     public void SaveData()
     {
 
@@ -111,9 +120,15 @@ public class GameController : MonoBehaviour
         //m_audioMixer.SetFloat("MusicAmmount", musicValue);
         //m_audioMixer.SetFloat("SFXAmmount", sfxValue);
     }
+    
 
     private void OnDisable()
     {
         _playerScore.onPointScored -= OnPointScored;
+    }
+
+    public void PlayerWon(string playerID)
+    {
+        _victoryPanel.ShowVictoryPanel(playerID);
     }
 }

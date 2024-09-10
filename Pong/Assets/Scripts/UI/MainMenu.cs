@@ -19,8 +19,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] EventSystem _eventSystem;
     [SerializeField] GameObject _selectedGameObject;
 
-    //public static Action OnShowSettingsPanelFromMainMenu;
-
     //TODO: Implementar audio.
 
     private void Awake()

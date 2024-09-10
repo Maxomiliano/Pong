@@ -55,5 +55,9 @@ public class PlayerScore : MonoBehaviour
             _player2Score += _scoreAmount;
             UpdatePlayerTwoDisplay();
         }
+        if (_player1Score == 10 || _player2Score == 10)
+        {
+            GameController.Instance.PlayerWon(colliderID);
+        }
     }
 }

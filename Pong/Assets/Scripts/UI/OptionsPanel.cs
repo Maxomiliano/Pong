@@ -13,7 +13,6 @@ public class OptionsPanel : Window
     [SerializeField] Slider _musicSlider;
     [SerializeField] Button _backButton;
     [SerializeField] EventSystem _eventSystem;
-    public static Action BackFromSettingsClick;
 
     private void Start()
     {

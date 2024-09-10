@@ -4672,7 +4672,7 @@ MonoBehaviour:
   _optionsPanel: {fileID: 495545719}
   _creditsPanel: {fileID: 5247515803210141022}
   _eventSystem: {fileID: 420178606}
-  _selectedGameObject: {fileID: 9047420962618135531}
+  _selectedGameObject: {fileID: 8027053051899875117}
 --- !u!114 &2201734634860980188
 MonoBehaviour:
   m_ObjectHideFlags: 0
