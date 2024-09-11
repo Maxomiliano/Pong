@@ -870,7 +870,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ef92ebdd-56a9-4b68-b1d0-84a9978a3eef"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
