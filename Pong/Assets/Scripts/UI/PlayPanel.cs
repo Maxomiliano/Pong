@@ -15,7 +15,7 @@ public class PlayPanel : Window
 
     private void Start()
     {
-        _eventSystem.SetSelectedGameObject(_playerVsPlayer.gameObject);
+        //_eventSystem.SetSelectedGameObject(_playerVsPlayer.gameObject);
     }
 
     private void OnEnable()
@@ -23,6 +23,7 @@ public class PlayPanel : Window
         _playerVsPlayer.onClick.AddListener(TogglePlayerVsPlayer);
         _playerVsPC.onClick.AddListener(TogglePlayerVsAI);
         _backButton.onClick.AddListener(CloseWindow);
+        _eventSystem.SetSelectedGameObject(_playerVsPlayer.gameObject);
     }
 
     private void OnDisable()

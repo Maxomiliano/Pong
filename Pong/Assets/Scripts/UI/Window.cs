@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Window : MonoBehaviour
 {
+    [SerializeField] MainMenu _mainMenu;
     public bool IsCloseable = true;
+
     public virtual void OpenWindow()
     {
         WindowsManager.Instance.PushWindow(this);
@@ -17,5 +19,10 @@ public class Window : MonoBehaviour
         WindowsManager.Instance.PopWindow();
         gameObject.SetActive(false);
         Time.timeScale = 1; //Cambiar esto de lugar
+
+        if (_mainMenu != null)
+        {
+            _mainMenu.SelectFirstMenuItem();
+        }
     }
 }

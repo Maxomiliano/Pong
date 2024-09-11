@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : Window
 {
     [SerializeField] Button _playbutton;
     [SerializeField] Button _quitButton;
@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour
     {
         _playPanel.OpenWindow();
         _selectedGameObject = EventSystem.current.currentSelectedGameObject;
-        //_eventSystem.SetSelectedGameObject(_playerVsPlayer.gameObject);
+        //_eventSystem.SetSelectedGameObject(_playPanel.gameObject);
     }
 
     private void ShowOptionsPanel()
@@ -53,5 +53,10 @@ public class MainMenu : MonoBehaviour
         _selectedGameObject = EventSystem.current.currentSelectedGameObject;
         _creditsPanel.OpenWindow();
         //_eventSystem.SetSelectedGameObject(_creditsBackButton.gameObject);
+    }
+
+    public void SelectFirstMenuItem()
+    {
+        _eventSystem.SetSelectedGameObject(_playbutton.gameObject);
     }
 }

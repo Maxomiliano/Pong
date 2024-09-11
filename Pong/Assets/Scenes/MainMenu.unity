@@ -665,6 +665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185dcacb154fa7149aa358191a1323f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainMenu: {fileID: 2109987198685468681}
   IsCloseable: 1
   _yesButton: {fileID: 1231174440}
   _noButton: {fileID: 1727037020}
@@ -778,6 +779,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3724850611242921913, guid: 2e7f4a56531f39347acf81e76c31d1cb, type: 3}
+      propertyPath: _mainMenu
+      value: 
+      objectReference: {fileID: 2109987198685468681}
     - target: {fileID: 3724850611242921913, guid: 2e7f4a56531f39347acf81e76c31d1cb, type: 3}
       propertyPath: _eventSystem
       value: 
@@ -4688,7 +4693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2115499630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5462,10 +5467,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 7862704739461946952}
+    m_SelectOnDown: {fileID: 8648057204683133444}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -5756,6 +5761,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44bf2bafbd291b544a5d778eb9fdf219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainMenu: {fileID: 2109987198685468681}
+  IsCloseable: 1
   _playbutton: {fileID: 7864665198510636505}
   _quitButton: {fileID: 1308479570674686173}
   _optionsButton: {fileID: 1022691027962925745}
@@ -6570,6 +6577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ffd27c7c19ec14bb9ff40eb583bfa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainMenu: {fileID: 2109987198685468681}
   IsCloseable: 1
   _eventSystem: {fileID: 420178606}
   _backButton: {fileID: 5279184265196289573}
@@ -7430,10 +7438,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 8648057204683133444}
+    m_SelectOnDown: {fileID: 1226722648581205554}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -8137,6 +8145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e034470f8f11b69418130e1d7ce4dfe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainMenu: {fileID: 2109987198685468681}
   IsCloseable: 1
   _playerVsPlayer: {fileID: 1226722648581205554}
   _playerVsPC: {fileID: 8648057204683133444}

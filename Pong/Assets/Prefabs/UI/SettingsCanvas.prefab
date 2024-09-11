@@ -819,10 +819,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 6383180322987712218}
+    m_SelectOnDown: {fileID: 7067090268470433350}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -1668,9 +1668,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 769c6480fde2e8c49a99edf6b0807936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsCloseable: 1
   _soundSlider: {fileID: 3417099016764916903}
   _musicSlider: {fileID: 7067090268470433350}
   _backButton: {fileID: 6383180322987712218}
+  _eventSystem: {fileID: 0}
 --- !u!1 &8223724334783498618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,9 +1729,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: -1
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
+    m_SelectOnUp: {fileID: 6383180322987712218}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
