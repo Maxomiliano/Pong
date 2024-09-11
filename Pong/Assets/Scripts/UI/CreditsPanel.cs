@@ -11,12 +11,13 @@ public class CreditsPanel : Window
 
     private void Start()
     {
-        _eventSystem.SetSelectedGameObject(_backButton.gameObject);
+        //_eventSystem.SetSelectedGameObject(_backButton.gameObject);
     }
 
     private void OnEnable()
     {
         _backButton.onClick.AddListener(CloseWindow);
+        _eventSystem.SetSelectedGameObject(_backButton.gameObject);
     }
 
     private void OnDisable()

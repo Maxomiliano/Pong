@@ -17,4 +17,9 @@ public class SelectableArrow : MonoBehaviour, ISelectHandler, IDeselectHandler
     {
         _arrow.SetActive(false);
     }
+
+    public void HideArrow()
+    {
+        _arrow.SetActive(false); 
+    }
 }

@@ -13,11 +13,6 @@ public class PlayPanel : Window
     [SerializeField] GameSettings _gameSettings;
     [SerializeField] EventSystem _eventSystem;
 
-    private void Start()
-    {
-        //_eventSystem.SetSelectedGameObject(_playerVsPlayer.gameObject);
-    }
-
     private void OnEnable()
     {
         _playerVsPlayer.onClick.AddListener(TogglePlayerVsPlayer);
@@ -47,5 +42,23 @@ public class PlayPanel : Window
     private void Play()
     {
         SceneManager.LoadScene("Play");
+    }
+    public override void CloseWindow()
+    {
+        // Antes de cerrar, deselecciona el objeto actual y oculta flechas
+        DeselectCurrentButton();
+        base.CloseWindow(); // Llama al método base para cerrar la ventana
+    }
+    private void DeselectCurrentButton()
+    {
+        // Desactivar flecha del botón de back
+        SelectableArrow arrowComponent = _backButton.GetComponent<SelectableArrow>();
+        if (arrowComponent != null)
+        {
+            arrowComponent.HideArrow();
+        }
+
+        // Dejo seleccionado el primer objeto del panel
+        _eventSystem.SetSelectedGameObject(_playerVsPlayer.gameObject);
     }
 }

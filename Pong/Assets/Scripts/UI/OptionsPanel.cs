@@ -14,19 +14,33 @@ public class OptionsPanel : Window
     [SerializeField] Button _backButton;
     [SerializeField] EventSystem _eventSystem;
 
-    private void Start()
-    {
-        //_eventSystem.SetSelectedGameObject(_backButton.gameObject);
-    }
-
     private void OnEnable()
     {
-        _backButton.onClick.AddListener(CloseWindow);
         _eventSystem.SetSelectedGameObject(_soundSlider.gameObject);
+        _backButton.onClick.AddListener(CloseWindow);
     }
 
     private void OnDisable()
     {
         _backButton.onClick.RemoveListener(CloseWindow);
+    }
+
+    public override void CloseWindow()
+    {
+        // Antes de cerrar, deselecciona el objeto actual y oculta flechas
+        DeselectCurrentButton();
+        base.CloseWindow(); // Llama al método base para cerrar la ventana
+    }
+    private void DeselectCurrentButton()
+    {
+        // Desactivar flecha del botón de "Back"
+        SelectableArrow arrowComponent = _backButton.GetComponent<SelectableArrow>();
+        if (arrowComponent != null)
+        {
+            arrowComponent.HideArrow();
+        }
+
+        // Deseleccionar el objeto actual del EventSystem
+        _eventSystem.SetSelectedGameObject(_soundSlider.gameObject);
     }
 }

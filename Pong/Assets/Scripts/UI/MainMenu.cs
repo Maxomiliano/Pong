@@ -15,6 +15,7 @@ public class MainMenu : Window
     [SerializeField] Window _playPanel;
     [SerializeField] Window _optionsPanel;
     [SerializeField] Window _creditsPanel;
+    [SerializeField] Window _exitPanel;
 
     [SerializeField] EventSystem _eventSystem;
     [SerializeField] GameObject _selectedGameObject;
@@ -26,33 +27,31 @@ public class MainMenu : Window
         _playbutton.onClick.AddListener(ShowGameModePanel);
         _optionsButton.onClick.AddListener(ShowOptionsPanel);
         _creditsButton.onClick.AddListener(ShowCreditsPanel);
-        _quitButton.onClick.AddListener(Quit);
-    }
-
-    private void Quit()
-    {
-        Application.Quit();
+        _quitButton.onClick.AddListener(ShowExitPanel);
     }
 
     private void ShowGameModePanel()
     {
         _playPanel.OpenWindow();
         _selectedGameObject = EventSystem.current.currentSelectedGameObject;
-        //_eventSystem.SetSelectedGameObject(_playPanel.gameObject);
     }
 
     private void ShowOptionsPanel()
     {
         _selectedGameObject = EventSystem.current.currentSelectedGameObject;
         _optionsPanel.OpenWindow();
-        //_eventSystem.SetSelectedGameObject(_optionsBackButton.gameObject);
     }
 
     private void ShowCreditsPanel()
     {
         _selectedGameObject = EventSystem.current.currentSelectedGameObject;
         _creditsPanel.OpenWindow();
-        //_eventSystem.SetSelectedGameObject(_creditsBackButton.gameObject);
+    }
+
+    private void ShowExitPanel()
+    {
+        _selectedGameObject = EventSystem.current.currentSelectedGameObject;
+        _exitPanel.OpenWindow();
     }
 
     public void SelectFirstMenuItem()
