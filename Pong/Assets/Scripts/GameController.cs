@@ -105,6 +105,7 @@ public class GameController : MonoBehaviour
     public void GoToMainMenuFromVictoryPanel()
     {
         //SaveData();
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
         OnGoToMainMenu?.Invoke();
     }
