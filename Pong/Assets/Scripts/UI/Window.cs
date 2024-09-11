@@ -5,6 +5,7 @@ using UnityEngine;
 public class Window : MonoBehaviour
 {
     [SerializeField] MainMenu _mainMenu;
+    [SerializeField] PausePanel _pausePanel;
     public bool IsCloseable = true;
 
     public virtual void OpenWindow()
@@ -12,6 +13,7 @@ public class Window : MonoBehaviour
         WindowsManager.Instance.PushWindow(this);
         gameObject.SetActive(true);
         Time.timeScale = 0; //Cambiar esto de lugar
+        Debug.Log(Time.timeScale);
     }
 
     public virtual void CloseWindow() 
@@ -24,5 +26,6 @@ public class Window : MonoBehaviour
         {
             _mainMenu.SelectFirstMenuItem();
         }
+        Debug.Log(Time.timeScale);
     }
 }

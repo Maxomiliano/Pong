@@ -31,7 +31,9 @@ public class InputHandler : MonoBehaviour
         if (currentPanel != null)
         {
             if (currentPanel.IsCloseable)
+            { 
                 currentPanel.CloseWindow();
+            }
         }
         else
         {
