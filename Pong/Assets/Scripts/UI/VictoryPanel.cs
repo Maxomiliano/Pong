@@ -11,6 +11,8 @@ public class VictoryPanel : Window
     [SerializeField] Window _victoryPanel;
     [SerializeField] Button _mainMenuButton;
     [SerializeField] TMP_Text _victoryText;
+    private const string PLAYER_1 = "Player1";
+    private const string PLAYER_2 = "Player2";
 
     void OnEnable()
     {
@@ -23,11 +25,11 @@ public class VictoryPanel : Window
 
     public void ShowVictoryPanel(string playerID)
     {
-        if (playerID == "Player1Scores")
+        if (playerID == PLAYER_1)
         {
             _victoryText.text = "Player 1 Wins!";
         }
-        else if (playerID == "Player2Scores")
+        else if (playerID == PLAYER_2)
         {
             _victoryText.text = "Player 2 Wins!";
         }
