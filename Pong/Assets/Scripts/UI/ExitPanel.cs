@@ -22,20 +22,16 @@ public class ExitPanel : Window
     }
     public override void CloseWindow()
     {
-        // Antes de cerrar, deselecciona el objeto actual y oculta flechas
         DeselectCurrentButton();
-        base.CloseWindow(); // Llama al método base para cerrar la ventana
+        base.CloseWindow();
     }
     private void DeselectCurrentButton()
     {
-        // Desactivar flecha del botón de back
         SelectableArrow arrowComponent = _yesButton.GetComponent<SelectableArrow>();
         if (arrowComponent != null)
         {
             arrowComponent.HideArrow();
         }
-
-        // Dejo seleccionado el primer objeto del panel
         _eventSystem.SetSelectedGameObject(_noButton.gameObject);
     }
 }
