@@ -878,6 +878,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2467954464155181152}
     - target: {fileID: 7397155438508137267, guid: c8cb5ef5233b57b4fa391b64f6974f9e, type: 3}
+      propertyPath: _eventSystem
+      value: 
+      objectReference: {fileID: 1470349710}
+    - target: {fileID: 7397155438508137267, guid: c8cb5ef5233b57b4fa391b64f6974f9e, type: 3}
       propertyPath: _settingsWindow
       value: 
       objectReference: {fileID: 7763047534372970624}

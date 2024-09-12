@@ -49,4 +49,17 @@ public class WindowsManager : MonoBehaviour
     {
         return _windowsStack.Count > 0 ? _windowsStack.Peek() : null;
     }
+
+    public void UpdateTimeScale()
+    {
+        // Si no hay ventanas en la pila, reanuda el juego
+        if (_windowsStack.Count == 0)
+        {
+            Time.timeScale = 1;
+            return;
+        }
+
+        // Pausa el juego si alguna ventana requiere que el juego esté pausado
+        Time.timeScale = 0;
+    }
 }

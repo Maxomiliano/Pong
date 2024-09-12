@@ -27,8 +27,14 @@ public class OptionsPanel : Window
 
     public override void CloseWindow()
     {
+        _eventSystem.SetSelectedGameObject(null);
         DeselectCurrentButton();
         base.CloseWindow();
+        PausePanel currentPanel = WindowsManager.Instance.GetCurrentPanel() as PausePanel;
+        if (currentPanel != null)
+        {
+            currentPanel.SelectFirstMenuItem();
+        }
     }
     private void DeselectCurrentButton()
     {
