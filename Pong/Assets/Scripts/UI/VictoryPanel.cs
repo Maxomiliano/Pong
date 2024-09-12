@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,12 +12,14 @@ public class VictoryPanel : Window
     [SerializeField] Window _victoryPanel;
     [SerializeField] Button _mainMenuButton;
     [SerializeField] TMP_Text _victoryText;
+    [SerializeField] EventSystem _eventSystem;
     private const string PLAYER_1 = "Player1";
     private const string PLAYER_2 = "Player2";
 
     void OnEnable()
     {
         _mainMenuButton.onClick.AddListener(GameController.Instance.GoToMainMenuFromVictoryPanel);
+        _eventSystem.SetSelectedGameObject(_mainMenuButton.gameObject);
     }
     void OnDisable()
     {

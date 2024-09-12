@@ -1435,6 +1435,10 @@ PrefabInstance:
       propertyPath: _pausePanel
       value: 
       objectReference: {fileID: 1090497059}
+    - target: {fileID: 2144460335165696183, guid: bb6328bf06cb08448b2aeae262310174, type: 3}
+      propertyPath: _eventSystem
+      value: 
+      objectReference: {fileID: 1470349710}
     - target: {fileID: 2867847089015659410, guid: bb6328bf06cb08448b2aeae262310174, type: 3}
       propertyPath: m_Camera
       value: 

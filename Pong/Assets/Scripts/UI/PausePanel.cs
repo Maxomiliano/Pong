@@ -53,6 +53,7 @@ public class PausePanel : Window
     }
     public void SelectFirstMenuItem()
     {
-        _eventSystem.SetSelectedGameObject(_resumeButton.gameObject); // Selecciona el botón reanudar
+        _eventSystem.SetSelectedGameObject(null);
+        _eventSystem.SetSelectedGameObject(_resumeButton.gameObject);
     }
 }
