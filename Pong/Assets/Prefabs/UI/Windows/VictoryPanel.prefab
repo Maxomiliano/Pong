@@ -257,7 +257,7 @@ Canvas:
   m_GameObject: {fileID: 5676185112090279238}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -323,6 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a023df991efa70c4eb4ab51d42b878af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainMenu: {fileID: 0}
+  _pausePanel: {fileID: 0}
   IsCloseable: 1
   _victoryPanel: {fileID: 2144460335165696183}
   _mainMenuButton: {fileID: 5367457481971518643}
