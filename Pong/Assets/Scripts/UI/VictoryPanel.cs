@@ -30,13 +30,12 @@ public class VictoryPanel : Window
     {
         if (playerID == PLAYER_1)
         {
-            _victoryText.text = "Player 1 Wins!";
+            _victoryText.text = "Player 1 Wins";
         }
         else if (playerID == PLAYER_2)
         {
-            _victoryText.text = "Player 2 Wins!";
+            _victoryText.text = "Player 2 Wins";
         }
         _victoryPanel.OpenWindow();
-        //Time.timeScale = 0;
     }
 }
