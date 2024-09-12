@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WindowsManager : MonoBehaviour
 {
@@ -13,21 +14,34 @@ public class WindowsManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
             Destroy(gameObject);
         }
     }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ClearWindowsStack();
+    }
+
+    private void ClearWindowsStack()
+    {
+        _windowsStack.Clear();
+    }
 
     public void PushWindow(Window window)
     {
-        
         if (_windowsStack.Count > 0)
         {
             _windowsStack.Peek().gameObject.SetActive(false);
         }
-        
+
         _windowsStack.Push(window);
         Debug.Log("Opened window: " + window.name);
     }
@@ -52,14 +66,11 @@ public class WindowsManager : MonoBehaviour
 
     public void UpdateTimeScale()
     {
-        // Si no hay ventanas en la pila, reanuda el juego
         if (_windowsStack.Count == 0)
         {
             Time.timeScale = 1;
             return;
         }
-
-        // Pausa el juego si alguna ventana requiere que el juego esté pausado
         Time.timeScale = 0;
     }
 }

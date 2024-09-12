@@ -19,6 +19,7 @@ public class PausePanel : Window
         _resumeButton.onClick.AddListener(CloseWindow);
         _mainMenuButton.onClick.AddListener(GameController.GoToMainMenu);
         _settingsButton.onClick.AddListener(OpenSettingsWindow);
+        SelectFirstMenuItem();
     }
     private void OnDisable()
     {

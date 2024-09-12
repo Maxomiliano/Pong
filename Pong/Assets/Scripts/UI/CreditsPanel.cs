@@ -9,11 +9,6 @@ public class CreditsPanel : Window
     [SerializeField] EventSystem _eventSystem;
     [SerializeField] Button _backButton;
 
-    private void Start()
-    {
-        //_eventSystem.SetSelectedGameObject(_backButton.gameObject);
-    }
-
     private void OnEnable()
     {
         _backButton.onClick.AddListener(CloseWindow);
