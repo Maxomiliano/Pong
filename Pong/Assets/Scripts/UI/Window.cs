@@ -12,6 +12,7 @@ public class Window : MonoBehaviour
     {
         WindowsManager.Instance.PushWindow(this);
         gameObject.SetActive(true);
+        SFXController.Instance.PlayPopupOpensSFX();
         WindowsManager.Instance.UpdateTimeScale();
     }
 
@@ -20,6 +21,7 @@ public class Window : MonoBehaviour
         WindowsManager.Instance.PopWindow();
         gameObject.SetActive(false);
         WindowsManager.Instance.UpdateTimeScale();
+        SFXController.Instance.PlayPopupOpensSFX();
 
         if (_mainMenu != null)
         {

@@ -19,15 +19,19 @@ public class VictoryPanel : Window
     void OnEnable()
     {
         _mainMenuButton.onClick.AddListener(GameController.Instance.GoToMainMenuFromVictoryPanel);
+        _mainMenuButton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
         _eventSystem.SetSelectedGameObject(_mainMenuButton.gameObject);
     }
     void OnDisable()
     {
         _mainMenuButton.onClick.RemoveListener(GameController.Instance.GoToMainMenuFromVictoryPanel);
+        _mainMenuButton.onClick.RemoveListener(SFXController.Instance.PlayButtonPressSFX);
     }
 
     public void ShowVictoryPanel(string playerID)
     {
+        SFXController.Instance.PlayPopupOpensSFX();
+        MusicController.Instance.SetVictoryPanelTheme();
         if (playerID == PLAYER_1)
         {
             _victoryText.text = "Player 1 Wins";

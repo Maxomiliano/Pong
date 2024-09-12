@@ -17,15 +17,21 @@ public class PausePanel : Window
     private void OnEnable()
     {
         _resumeButton.onClick.AddListener(CloseWindow);
+        _resumeButton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
         _mainMenuButton.onClick.AddListener(GameController.GoToMainMenu);
+        _mainMenuButton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
         _settingsButton.onClick.AddListener(OpenSettingsWindow);
+        _settingsButton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
         SelectFirstMenuItem();
     }
     private void OnDisable()
     {
         _resumeButton.onClick.RemoveListener(CloseWindow);
+        _resumeButton.onClick.RemoveListener(SFXController.Instance.PlayButtonPressSFX);
         _mainMenuButton.onClick.RemoveListener(GameController.GoToMainMenu);
+        _mainMenuButton.onClick.RemoveListener(SFXController.Instance.PlayButtonPressSFX);
         _settingsButton.onClick.RemoveListener(OpenSettingsWindow);
+        _settingsButton.onClick.RemoveListener(SFXController.Instance.PlayButtonPressSFX);
     }
     
     private void OpenSettingsWindow()

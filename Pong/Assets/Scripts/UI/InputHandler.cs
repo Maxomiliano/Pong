@@ -38,7 +38,9 @@ public class InputHandler : MonoBehaviour
         else
         {
             if (_entryPointWindow != null)
+            { 
                 _entryPointWindow.OpenWindow();
+            }
         }
     }
 }

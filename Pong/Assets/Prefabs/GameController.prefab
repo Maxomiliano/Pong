@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &318852742366408777
 MonoBehaviour:
@@ -50,4 +50,7 @@ MonoBehaviour:
   _player2Movement: {fileID: 0}
   _player2AIMovement: {fileID: 0}
   _timer: {fileID: 0}
-  CloneBall: {fileID: 0}
+  _canvas: {fileID: 0}
+  _victoryPanel: {fileID: 0}
+  m_saveData: {fileID: 0}
+  m_audioMixer: {fileID: 24100000, guid: 0b279d7fe1105784184904f2235ad41b, type: 2}

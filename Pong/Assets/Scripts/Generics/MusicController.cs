@@ -30,7 +30,7 @@ public class MusicController : NullableSingleton<MusicController>
         {
             item.loop = false;
         }
-        m_nextClip = m_lookupMusic["intro_intro"];
+        m_nextClip = m_lookupMusic["pixel_intro"];
     }
 
     private void SetMusicClip(Scene scene, LoadSceneMode sceneMode)
@@ -39,10 +39,10 @@ public class MusicController : NullableSingleton<MusicController>
         {
             case "MainMenu":
                 if (!m_firstTimeOnMainMenu)
-                    CrossfadeTo("intro_main");
+                    CrossfadeTo("pixel_intro");
                 break;
             default:
-                CrossfadeTo("gp_intro");
+                CrossfadeTo("pixel_intro");
                 break;
         }
     }

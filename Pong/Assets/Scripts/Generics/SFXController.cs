@@ -6,7 +6,7 @@ public class SFXController : NullableSingleton<SFXController>
 {
     [SerializeField] AudioClip[] m_uiButtonInteractionClips;
     [SerializeField] AudioClip[] m_popupOpenClips;
-    [SerializeField] AudioClip[] m_keyboardButtonPressClips;
+    //[SerializeField] AudioClip[] m_keyboardButtonPressClips;
     [SerializeField] AudioSource m_auso;
 
     public void PlayButtonPressSFX()
@@ -19,6 +19,7 @@ public class SFXController : NullableSingleton<SFXController>
         m_auso.PlayOneShot(m_popupOpenClips[Random.Range(0, m_popupOpenClips.Length)]);
     }
 
+    /*
     public void PlayKeyboardButtonPressSFX()
     {
         m_auso.PlayOneShot(m_keyboardButtonPressClips[Random.Range(0, m_keyboardButtonPressClips.Length)]);
@@ -28,4 +29,5 @@ public class SFXController : NullableSingleton<SFXController>
     {
         m_auso.PlayOneShot(m_keyboardButtonPressClips[Random.Range(0, m_keyboardButtonPressClips.Length)]);
     }
+    */
 }

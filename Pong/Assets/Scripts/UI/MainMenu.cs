@@ -25,9 +25,13 @@ public class MainMenu : Window
     private void Awake()
     {
         _playbutton.onClick.AddListener(ShowGameModePanel);
+        _playbutton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
         _optionsButton.onClick.AddListener(ShowOptionsPanel);
+        _optionsButton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
         _creditsButton.onClick.AddListener(ShowCreditsPanel);
+        _creditsButton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
         _quitButton.onClick.AddListener(ShowExitPanel);
+        _quitButton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
     }
 
     private void ShowGameModePanel()
