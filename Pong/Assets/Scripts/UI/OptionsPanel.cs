@@ -25,6 +25,24 @@ public class OptionsPanel : Window
         _backButton.onClick.RemoveListener(CloseWindow);
     }
 
+    private void Start()
+    {
+        _soundSlider.value = GameController.Instance.SFXValue;
+        _musicSlider.value = GameController.Instance.MusicValue;
+        _soundSlider.onValueChanged.AddListener(OnSFXValueChanged);
+        _musicSlider.onValueChanged.AddListener(OnMusicValueChanged);
+        //m_backButton.onClick.AddListener(SFXController.Instance.PlayButtonPressSFX);
+    }
+    void OnSFXValueChanged(float value)
+    {
+        GameController.Instance.SFXValue = value;
+    }
+
+    void OnMusicValueChanged(float value)
+    {
+        GameController.Instance.MusicValue = value;
+    }
+
     public override void CloseWindow()
     {
         _eventSystem.SetSelectedGameObject(null);

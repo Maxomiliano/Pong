@@ -1,42 +1,39 @@
 using UnityEngine;
 
-namespace Pilgrims.Generics
+public class NullableSingleton<T> : MonoBehaviour where T : Component
 {
-    public class NullableSingleton<T> : MonoBehaviour where T : Component
+    private static T m_instance;
+    public static T Instance
     {
-        private static T m_instance;
-        public static T Instance
+        get => m_instance;
+        private set
         {
-            get => m_instance;
-            private set
-            {
-                m_instance = value;
-            }
+            m_instance = value;
         }
+    }
 
-        private void Awake()
+    private void Awake()
+    {
+        OnAwake();
+    }
+
+    public void OnAwake()
+    {
+        if (m_instance == null)
         {
-            OnAwake();
+            m_instance = this as T;
         }
-
-        public void OnAwake()
+        else
         {
-            if (m_instance == null)
-            {
-                m_instance = this as T;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
+    }
 
-        private void OnDestroy()
+    private void OnDestroy()
+    {
+        if (m_instance == this)
         {
-            if (m_instance == this)
-            {
-                m_instance = null;
-            }
+            m_instance = null;
         }
     }
 }
