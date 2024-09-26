@@ -21,7 +21,6 @@ public class Ball : MonoBehaviour
         GoToRandomPosition(playerType);
     }
 
-
     public void GoToRandomPosition(PlayerType playerType)
     {
         Vector2 initialDirection = Vector2.zero;

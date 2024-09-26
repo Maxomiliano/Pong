@@ -104,6 +104,12 @@ MonoBehaviour:
     <Loop>k__BackingField: 1
     <NextClip>k__BackingField: 
     <BPM>k__BackingField: 0
+  - <ID>k__BackingField: win_track
+    <Clip>k__BackingField: {fileID: 8300000, guid: 32afe94e8486b7543abcd98cd258b761, type: 3}
+    ClipLength: 3.84
+    <Loop>k__BackingField: 0
+    <NextClip>k__BackingField: 
+    <BPM>k__BackingField: 0
   m_sources:
   - {fileID: 8487980104997382902}
   - {fileID: 5861986713370342496}
@@ -316,6 +322,8 @@ MonoBehaviour:
   m_popupOpenClips:
   - {fileID: 8300000, guid: 164ffa9d80dcb9648aaa548e3d40ab5b, type: 3}
   - {fileID: 8300000, guid: d4d6cadc14730ee47b12fe0a0305fd48, type: 3}
+  _ballTouchClip: {fileID: 8300000, guid: ed15f6eb8d46aeb408c9fc2aaee9e002, type: 3}
+  _scorePointClip: {fileID: 8300000, guid: ef9cfe48522413a489771e191cfbf5f0, type: 3}
   m_auso: {fileID: 1587198210612897352}
 --- !u!82 &1587198210612897352
 AudioSource:

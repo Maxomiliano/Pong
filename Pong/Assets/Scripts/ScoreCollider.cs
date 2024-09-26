@@ -12,6 +12,7 @@ public class ScoreCollider : MonoBehaviour
         if (collision != null) 
         {
             playerScore.AddScore(colliderID); //Quién ganó el punto 
+            SFXController.Instance.PlayScorePointSFX();
         }
         //collision.gameObject.SetActive(false);        
     }

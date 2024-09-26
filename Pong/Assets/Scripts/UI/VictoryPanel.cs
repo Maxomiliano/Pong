@@ -31,7 +31,7 @@ public class VictoryPanel : Window
     public void ShowVictoryPanel(string playerID)
     {
         SFXController.Instance.PlayPopupOpensSFX();
-        MusicController.Instance.SetVictoryPanelTheme();
+        MusicController.Instance.SetVictoryTheme();
         if (playerID == PLAYER_1)
         {
             _victoryText.text = "Player 1 Wins";

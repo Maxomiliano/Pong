@@ -26,6 +26,13 @@ public class PlayerMovement : MonoBehaviour
     }
     */
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            SFXController.Instance.PlayBallTouchSFX();
+        }
+    }
 
     private void OnMove(InputValue inputValue)
     {

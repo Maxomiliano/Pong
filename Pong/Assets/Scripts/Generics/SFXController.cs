@@ -6,6 +6,8 @@ public class SFXController : NullableSingleton<SFXController>
 {
     [SerializeField] AudioClip[] m_uiButtonInteractionClips;
     [SerializeField] AudioClip[] m_popupOpenClips;
+    [SerializeField] AudioClip _ballTouchClip;
+    [SerializeField] AudioClip _scorePointClip;
     //[SerializeField] AudioClip[] m_keyboardButtonPressClips;
     [SerializeField] AudioSource m_auso;
 
@@ -17,6 +19,16 @@ public class SFXController : NullableSingleton<SFXController>
     public void PlayPopupOpensSFX()
     {
         m_auso.PlayOneShot(m_popupOpenClips[Random.Range(0, m_popupOpenClips.Length)]);
+    }
+
+    public void PlayBallTouchSFX()
+    {
+        m_auso.PlayOneShot(_ballTouchClip);
+    }
+
+    public void PlayScorePointSFX()
+    {
+        m_auso.PlayOneShot(_scorePointClip);
     }
 
     /*

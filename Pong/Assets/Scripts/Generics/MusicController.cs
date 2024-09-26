@@ -41,6 +41,9 @@ public class MusicController : NullableSingleton<MusicController>
                 if (!m_firstTimeOnMainMenu)
                     CrossfadeTo("pixel_intro");
                 break;
+            case "Play":
+                StopMusic();
+                break;
             default:
                 CrossfadeTo("pixel_intro");
                 break;
@@ -133,7 +136,8 @@ public class MusicController : NullableSingleton<MusicController>
 
     public void SetVictoryTheme()
     {
-        LinkAtBeatTo("gp_victory");
+        //LinkAtBeatTo("win_track");
+        CrossfadeTo("win_track");
     }
 
     public void SetLooseTheme()
@@ -144,11 +148,22 @@ public class MusicController : NullableSingleton<MusicController>
     public void SetVictoryPanelTheme()
     {
         nextEventTime = AudioSettings.dspTime + 1.0f;
-        m_nextClip = m_lookupMusic["gp_vv_intro"];
+        m_nextClip = m_lookupMusic["win_track"];
+        //m_nextClip.Loop = false;
+        //LinkAtBeatTo("win_track");
     }
 
     public void SetMaintheme()
     {
-        CrossfadeTo("gp_intro");
+        CrossfadeTo("pixel_intro");
+    }
+
+    private void StopMusic()
+    {
+        foreach (AudioSource source in m_sources)
+        {
+            source.Stop();
+        }
+        running = false;
     }
 }

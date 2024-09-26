@@ -395,6 +395,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 688571325643902012, guid: cbc08c9f91a3ada4186a785edfe7188e, type: 3}
+      propertyPath: m_tracks.Array.data[1].<Loop>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5922707667888228409, guid: cbc08c9f91a3ada4186a785edfe7188e, type: 3}
       propertyPath: m_Name
       value: AudioController

@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(_timer.Countdown());
         StartCoroutine(ShowCanvasCoroutine());
         SetGameMode();     
+
     }
 
     private IEnumerator ShowCanvasCoroutine()
@@ -86,6 +87,7 @@ public class GameController : MonoBehaviour
         //SaveData();
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
+        MusicController.Instance.SetMaintheme();
         OnGoToMainMenu?.Invoke();
     }
 
